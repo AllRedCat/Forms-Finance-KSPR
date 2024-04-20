@@ -8,7 +8,7 @@
 <body>
     <header>
         <nav>
-            <button>Home</button>
+            <button onclick="showHome()">Home</button>
             <ul>
                 <li><button id="AcountBtn" onclick="showAcount()">Contas</button></li>
                 <li><button id="CategoriesBtn" onclick="showCategories()">Categorias</button></li>
@@ -17,7 +17,14 @@
         </nav>
     </header>
     <main>
-        <div class="container"></div>
+        <div id="home" class="Home">
+            Home page
+            <ul>
+                <li><button id="AcountBtn" onclick="showAcount()">Contas</button></li>
+                <li><button id="CategoriesBtn" onclick="showCategories()">Categorias</button></li>
+                <li><button id="TransactionsBtn" onclick="showTransactions()">Transações</button></li>
+            </ul>
+        </div>
         <form action="" id="acount" class="acount" style="display: none;">
             Contas
             <label for="">Nome
