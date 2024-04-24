@@ -140,6 +140,40 @@ main {
 /* Pagina de transações */
 .transactions {
     flex-direction: column;
+    background-color: brown;
+    margin-top: -8rem;
+    padding: 2rem 0;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.TransactionsContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.TransactionsContainer label input {
+    width: 100%;
+    height: 20px;
+}
+
+.TransactionsType {
+    display: flex;
+}
+
+.LabelType {
+    display: flex;
+    justify-content: center;
+}
+
+.TransactionsBtn {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
 }
 
 .LabelType {
