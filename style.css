@@ -5,7 +5,8 @@
     list-style: none;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -43,9 +44,33 @@ main {
     height: 100%;
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     background-color: blueviolet;
 }
 
 /* Home page */
-.Home {}
+.Home {
+    background-color: brown;
+    margin-top: -8rem;
+    padding: 2rem 0;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Home ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.Home ul button {
+    width: 100%;
+    border-style: none;
+    background-color: aqua;
+    border-radius: 10px;
+    padding: 6px 10px;
+    font-weight: 600;
+}
