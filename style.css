@@ -73,3 +73,18 @@ main {
     padding: 6px 10px;
     font-weight: 600;
 }
+
+/* Pagina de Contas */
+.acount {
+    flex-direction: column;
+}
+
+/* Pagina de categorias */
+.categories {
+    flex-direction: column;
+}
+
+/* Pagina de transações */
+.transactions {
+    flex-direction: column;
+}
