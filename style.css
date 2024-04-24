@@ -5,6 +5,14 @@
     list-style: none;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+}
+
 /* Cabeçalho */
 header {
     display: flex;
@@ -15,7 +23,7 @@ header {
 
 nav ul {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 header button {
@@ -28,3 +36,16 @@ header button {
 header button:hover {
     background-color: rgb(168, 168, 168);
 }
+
+/* Corpo */
+main {
+    /* width: 100vw; */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: blueviolet;
+}
+
+/* Home page */
+.Home {}
