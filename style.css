@@ -1,0 +1,13 @@
+* {
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+header {
+    display: flex;
+}
+
+nav ul {
+    display: flex;
+}
