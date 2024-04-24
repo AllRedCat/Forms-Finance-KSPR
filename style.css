@@ -77,6 +77,12 @@ main {
 /* Pagina de Contas */
 .acount {
     flex-direction: column;
+    background-color: brown;
+    margin-top: -8rem;
+    padding: 2rem 0;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Pagina de categorias */
@@ -86,5 +92,10 @@ main {
 
 /* Pagina de transações */
 .transactions {
+    flex-direction: column;
+}
+
+.LabelType {
+    display: flex;
     flex-direction: column;
 }
