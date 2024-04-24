@@ -1,9 +1,11 @@
+/* Geral */
 * {
     padding: 0;
     text-decoration: none;
     list-style: none;
 }
 
+/* Cabeçalho */
 header {
     display: flex;
     justify-content: space-between;
