@@ -46,8 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
             datasets: [{
                 label: 'Visão geral',
                 data: [bank, entry, out],
-                borderWidth: 2
-            }]
+                backgroundColor: "#fca311",
+            }],
         },
         options: {
             scales: {
