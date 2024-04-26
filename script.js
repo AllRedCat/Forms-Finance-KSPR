@@ -33,17 +33,19 @@ function showTransactions() {
 
 // Gráficos
 document.addEventListener('DOMContentLoaded', function() {
-    const ctx = document.getElementById('myChart');
+    const ctx = document.getElementById('chart1');
+    
+    var bank = 800;
     var entry = 1000;
-    var out = 1000;
+    var out = 700;
     
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Entrada', 'Saida'],
+            labels: ['Caixa', 'Entrada', 'Saida'],
             datasets: [{
-                label: '# Entrada | Saida',
-                data: [entry, out],
+                label: 'Visão geral',
+                data: [bank, entry, out],
                 borderWidth: 2
             }]
         },

@@ -64,7 +64,7 @@ main {
 .space-4,
 .space-5,
 .space-6 {
-    background-color: brown;
+    /* background-color: brown; */
     width: 100%;
 }
 
