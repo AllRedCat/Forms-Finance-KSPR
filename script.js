@@ -32,17 +32,35 @@ function showTransactions() {
 }
 
 // Gráficos
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+    //             Import dos 'canvas'               //
     const chart_1 = document.getElementById('chart1');
     const chart_2 = document.getElementById('chart2');
     const chart_3 = document.getElementById('chart3');
     const chart_4 = document.getElementById('chart4');
     const chart_5 = document.getElementById('chart5');
+    //-----------------------------------------------//
 
+    // Variáveis para test //
+    // Visão geral         //
     var bank = 800;
     var entry = 1000;
     var out = 700;
-    
+    // -- -- -- -- -- -- --//
+    // Receita             //
+    var base1 = 1000;
+    var base2 = 1200;
+    var base3 = 800;
+    // -- -- -- -- -- -- --//
+    // Despesas
+    var out1 = 500;
+    var out2 = 800;
+    var out3 = 300;
+    var out4 = 600;
+    // -- -- -- -- -- -- --//
+    //---------------------//
+
+    //               Primeiro Gráfico            //
     new Chart(chart_1, {
         type: 'bar',
         data: {
@@ -61,11 +79,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+    //------------------------------------------//
 
-    var base1 = 1000
-    var base2 = 1200
-    var base3 = 800
-
+    //               Segundo Gráfico            //
     new Chart(chart_2, {
         type: 'bar',
         data: {
@@ -84,12 +100,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-    
-    var out1 = 500
-    var out2 = 800
-    var out3 = 300
-    var out4 = 600
+    //------------------------------------------//
 
+    //              Terceiro Gráfico            //
     new Chart(chart_3, {
         type: 'bar',
         data: {
@@ -108,4 +121,5 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+    //------------------------------------------//
 });
