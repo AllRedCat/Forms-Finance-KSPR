@@ -30,3 +30,29 @@ function showTransactions() {
     categoriesForm.style.display = "none";
     transactionsForm.style.display = "flex";
 }
+
+// Gráficos
+document.addEventListener('DOMContentLoaded', function() {
+    const ctx = document.getElementById('myChart');
+    var entry = 1000;
+    var out = 1000;
+    
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Entrada', 'Saida'],
+            datasets: [{
+                label: '# Entrada | Saida',
+                data: [entry, out],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+});

@@ -1,109 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Forms - Finance | Red Cat</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Forms - Finance | Red Cat</title>
+    </head>
 
-<body>
-    <header>
-        <div class="home-btn">
-            <button onclick="showHome()">Home</button>
-        </div>
-        <!-- <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+    <body>
+        <header>
+            <div class="home-btn">
+                <button onclick="showHome()">Home</button>
+            </div>
+            <!-- <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
             <img src="img/cardapio.png">
         </button> -->
-        <nav>
-            <ul>
-                <li><button id="AcountBtn" onclick="showAcount()">Contas</button></li>
-                <li><button id="CategoriesBtn" onclick="showCategories()">Categorias</button></li>
-                <li><button id="TransactionsBtn" onclick="showTransactions()">Transações</button></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <div id="home" class="Home">
-            <!-- Home page -->
-            <ul>
-                <li><button id="AcountBtn" onclick="showAcount()">Contas</button></li>
-                <li><button id="CategoriesBtn" onclick="showCategories()">Categorias</button></li>
-                <li><button id="TransactionsBtn" onclick="showTransactions()">Transações</button></li>
-            </ul>
-        </div>
-        <form action="" id="acount" class="acount" style="display: none;">
-            <h2>Contas</h2>
-            <div class="AcountContainer">
-                <label for="">Nome
-                    <input type="text" id="NameAcount" class="name">
-                </label>
-                <label for="">Descrição
-                    <input type="text" id="DescriptionAcount" class="description">
-                </label>
+            <nav>
+                <ul>
+                    <li><button id="AcountBtn"
+                            onclick="showAcount()">Contas</button></li>
+                    <li><button id="CategoriesBtn"
+                            onclick="showCategories()">Categorias</button></li>
+                    <li><button id="TransactionsBtn"
+                            onclick="showTransactions()">Transações</button></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div id="home" class="Home">
+                <div>
+                    <canvas id="myChart"></canvas>
+                </div>
             </div>
-            <div class="AcountBtns">
-                <input type="reset" value="Cleam">
-                <input type="submit" value="Submit">
-            </div>
-        </form>
-        <form action="" id="categories" class="categories" style="display: none;">
-            <h2>Categorias</h2>
-            <div class="CategoriesContainer">
-                <label for="">Nome
-                    <input type="text" id="NameCategories" class="name">
-                </label>
-                <label for="">Descrição
-                    <input type="text" id="DescriptionCategories" class="description">
-                </label>
-            </div>
-            <div class="CategoriesBtns">
-                <input type="reset" value="Cleam">
-                <input type="submit" value="Submit">
-            </div>
-        </form>
-        <form action="" id="transactions" class="transactions" style="display: none;">
-            <h2>Transações</h2>
-            <div class="TransactionsContainer">
-                <label for="">Valor
-                    <input type="number" min="0.00" class="inputSpace">
-                </label>
-                <div class="TransactionsType">
-                    <label for="" class="LabelType">Tipo
-                        <div class="in">
-                            <input type="radio" name="tipo" value="Entrada">
-                            <label for="">Entrada</label>
-                        </div>
-                        <div class="out">
-                            <input type="radio" name="tipo" value="Saida">
-                            <label for="">Saida</label>
-                        </div>
+            <form action id="acount" class="acount" style="display: none;">
+                <h2>Contas</h2>
+                <div class="AcountContainer">
+                    <label for>Nome
+                        <input type="text" id="NameAcount" class="name">
+                    </label>
+                    <label for>Descrição
+                        <input type="text" id="DescriptionAcount"
+                            class="description">
                     </label>
                 </div>
-                <div class="dateTime">
-                    <label for="" class="dateItem">Data
-                        <input type="date" class="inputSpace">
+                <div class="AcountBtns">
+                    <input type="reset" value="Cleam">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+            <form action id="categories" class="categories"
+                style="display: none;">
+                <h2>Categorias</h2>
+                <div class="CategoriesContainer">
+                    <label for>Nome
+                        <input type="text" id="NameCategories" class="name">
                     </label>
-                    <label for="" class="timeItem">Hora
+                    <label for>Descrição
+                        <input type="text" id="DescriptionCategories"
+                            class="description">
+                    </label>
+                </div>
+                <div class="CategoriesBtns">
+                    <input type="reset" value="Cleam">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+            <form action id="transactions" class="transactions"
+                style="display: none;">
+                <h2>Transações</h2>
+                <div class="TransactionsContainer">
+                    <label for>Valor
+                        <input type="number" min="0.00" class="inputSpace">
+                    </label>
+                    <div class="TransactionsType">
+                        <label for class="LabelType">Tipo
+                            <div class="in">
+                                <input type="radio" name="tipo" value="Entrada">
+                                <label for>Entrada</label>
+                            </div>
+                            <div class="out">
+                                <input type="radio" name="tipo" value="Saida">
+                                <label for>Saida</label>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="dateTime">
+                        <label for class="dateItem">Data
+                            <input type="date" class="inputSpace">
+                        </label>
+                        <label for class="timeItem">Hora
+                            <input type="number" class="inputSpace">
+                        </label>
+                    </div>
+                    <label for>Conta
                         <input type="number" class="inputSpace">
                     </label>
+                    <label for>Categoria
+                        <input type="text" class="inputSpace">
+                    </label>
                 </div>
-                <label for="">Conta
-                    <input type="number" class="inputSpace">
-                </label>
-                <label for="">Categoria
-                    <input type="text" class="inputSpace">
-                </label>
-            </div>
-            <div class="TransactionsBtn">
-                <input type="reset" value="Cleam">
-                <input type="submit" value="Submit">
-            </div>
-        </form>
-    </main>
-    <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</body>
+                <div class="TransactionsBtn">
+                    <input type="reset" value="Cleam">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </main>
+        <script src="script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </body>
 
 </html>
