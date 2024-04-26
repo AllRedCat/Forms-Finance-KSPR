@@ -58,20 +58,37 @@ document.addEventListener('DOMContentLoaded', function () {
     var out3 = 300;
     var out4 = 600;
     // -- -- -- -- -- -- --//
+    // Somas
+    var somIn = base1 + base2 + base3;
+    var somOut = out1 + out2 + out3 + out4;
+    // -- -- -- -- -- -- --//
     //---------------------//
 
     //               Primeiro Gráfico            //
     new Chart(chart_1, {
-        type: 'bar',
+        type: 'line',
         data: {
-            labels: ['Caixa', 'Entrada', 'Saida'],
+            labels: ['Janeiro', 'Fereiro', 'Março', 'Abril'],
             datasets: [{
-                label: 'Visão geral',
-                data: [bank, entry, out],
+                label: 'Caixa',
+                data: [bank, entry, out, 1000],
                 backgroundColor: "#fca311",
-            }],
+                borderColor: "#fca311",
+            }, {
+                label: 'Entradas',
+                data: [1600, 2300, 1700, somIn],
+                backgroundColor: "#00aaff",
+                borderColor: "#00aaff",
+            }, {
+                label: 'Despesas',
+                data: [1500, 2000, 1800, somOut],
+                backgroundColor: "#d63b46",
+                borderColor: "#d63b46",
+            },
+            ],
         },
         options: {
+            responsive: true,
             scales: {
                 y: {
                     beginAtZero: true
