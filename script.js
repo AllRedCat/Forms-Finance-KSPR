@@ -35,6 +35,9 @@ function showTransactions() {
 document.addEventListener('DOMContentLoaded', function() {
     const chart_1 = document.getElementById('chart1');
     const chart_2 = document.getElementById('chart2');
+    const chart_3 = document.getElementById('chart3');
+    const chart_4 = document.getElementById('chart4');
+    const chart_5 = document.getElementById('chart5');
 
     var bank = 800;
     var entry = 1000;
@@ -71,6 +74,30 @@ document.addEventListener('DOMContentLoaded', function() {
                 label: 'Receita',
                 data: [base1, base2, base3],
                 backgroundColor: "#00aaff",
+            }],
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    
+    var out1 = 500
+    var out2 = 800
+    var out3 = 300
+    var out4 = 600
+
+    new Chart(chart_3, {
+        type: 'bar',
+        data: {
+            labels: ['Saida 1', 'Saida 2', 'Saida 3', 'Saida 4'],
+            datasets: [{
+                label: 'Dispesas',
+                data: [out1, out2, out3, out4],
+                backgroundColor: "#d63b46",
             }],
         },
         options: {
