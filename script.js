@@ -139,4 +139,60 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     //------------------------------------------//
+
+    //               Quarto Gráfico             //
+    new Chart(chart_4, {
+        type: 'doughnut', // Tipo de gráfico (doughnut para o gráfico circular)
+        data: {
+            labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue'], // Rótulos das fatias
+            datasets: [{
+                data: [12, 19, 3, 5, 2], // Valores das fatias
+                backgroundColor: [
+                    'rgba(255, 99, 132)',
+                    'rgba(255, 159, 64)',
+                    'rgba(255, 205, 86)',
+                    'rgba(75, 192, 192)',
+                    'rgba(54, 162, 235)'
+                ],
+                hoverOffset: 4 // Espaço quando a fatia é destacada
+            }]
+        },
+        options: {
+            responsive: true, // Tornar o gráfico responsivo
+            plugins: {
+                legend: {
+                    position: 'top' // Posição da legenda
+                }
+            }
+        }
+        // type: 'doughnut',
+        // data: {
+        //     labels: ['Carteira de investimentos'],
+        //     datasets: [{
+        //         label: 'Renda fixa',
+        //         data: [600],
+        //     }, {
+        //         labael: 'Ações',
+        //         data: [500],
+        //     }, {
+        //         label: 'Crypto',
+        //         data: [300],
+        //     }, {
+        //         label: 'CDB',
+        //         data: [200],
+        //     }],
+        // },
+        // options: {
+        //     responsive: true,
+        //     plugins: {
+        //         legend: {
+        //             position: top,
+        //         },
+        //         title: {
+        //             display: true,
+        //         }
+        //     }
+        // }
+    });
+    //------------------------------------------//
 });
