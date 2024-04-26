@@ -4,7 +4,7 @@ const categoriesForm = document.getElementById('categories');
 const transactionsForm = document.getElementById('transactions');
 
 function showHome() {
-    homePage.style.display = "flex"
+    homePage.style.display = "grid"
     acountForm.style.display = "none";
     categoriesForm.style.display = "none";
     transactionsForm.style.display = "none";
