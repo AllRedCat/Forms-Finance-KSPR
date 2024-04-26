@@ -144,15 +144,14 @@ document.addEventListener('DOMContentLoaded', function () {
     new Chart(chart_4, {
         type: 'doughnut', // Tipo de gráfico (doughnut para o gráfico circular)
         data: {
-            labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue'], // Rótulos das fatias
+            labels: ['Renda fixa', 'Ações', 'Crypto', 'CDB'], // Rótulos das fatias
             datasets: [{
-                data: [12, 19, 3, 5, 2], // Valores das fatias
+                data: [600, 500, 300, 200], // Valores das fatias
                 backgroundColor: [
                     'rgba(255, 99, 132)',
                     'rgba(255, 159, 64)',
                     'rgba(255, 205, 86)',
                     'rgba(75, 192, 192)',
-                    'rgba(54, 162, 235)'
                 ],
                 hoverOffset: 4 // Espaço quando a fatia é destacada
             }]
@@ -162,6 +161,10 @@ document.addEventListener('DOMContentLoaded', function () {
             plugins: {
                 legend: {
                     position: 'top' // Posição da legenda
+                },
+                title: {
+                    display: true,
+                    text: 'Investimentos'
                 }
             }
         }

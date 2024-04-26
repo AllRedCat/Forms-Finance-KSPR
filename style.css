@@ -48,40 +48,34 @@ main {
 
 /* Home page */
 .Home {
-    margin-top: -8rem;
-    padding: 2rem 0;
+    margin: -20rem 0 0 -4rem;
     width: 90%;
-    height: 400px;
+    min-height: 400px;
+    max-height: 600px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 1rem;
+    gap: 3rem;
 }
 
 .space-1,
 .space-2,
 .space-3,
-.space-4,
 .space-5,
 .space-6 {
-    /* background-color: brown; */
     width: 100%;
-}
-
-/* .Home ul {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    justify-content: center;
+    align-items: center;
 }
 
-.Home ul button {
-    width: 100%;
-    border-style: none;
-    background-color: aqua;
-    border-radius: 10px;
-    padding: 6px 10px;
-    font-weight: 600;
-} */
+.space-4 {
+    width: 500px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* Pagina de Contas */
 .acount {
