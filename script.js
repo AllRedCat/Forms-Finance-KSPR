@@ -33,13 +33,14 @@ function showTransactions() {
 
 // Gráficos
 document.addEventListener('DOMContentLoaded', function() {
-    const ctx = document.getElementById('chart1');
-    
+    const chart_1 = document.getElementById('chart1');
+    const chart_2 = document.getElementById('chart2');
+
     var bank = 800;
     var entry = 1000;
     var out = 700;
     
-    new Chart(ctx, {
+    new Chart(chart_1, {
         type: 'bar',
         data: {
             labels: ['Caixa', 'Entrada', 'Saida'],
@@ -47,6 +48,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 label: 'Visão geral',
                 data: [bank, entry, out],
                 backgroundColor: "#fca311",
+            }],
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    var base1 = 1000
+    var base2 = 1200
+    var base3 = 800
+
+    new Chart(chart_2, {
+        type: 'bar',
+        data: {
+            labels: ['Endrata 1', 'Entrada 2', 'Entrada 3'],
+            datasets: [{
+                label: 'Receita',
+                data: [base1, base2, base3],
+                backgroundColor: "#00aaff",
             }],
         },
         options: {
