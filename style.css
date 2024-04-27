@@ -61,9 +61,8 @@ main {
 .space-1,
 .space-2,
 .space-3,
-.space-5,
 .space-6 {
-    width: 100%;
+    width: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,6 +74,18 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.space-5 {
+    width: 500px;
+    height: 400px;
+}
+
+.item-1,
+.item-2,
+.item-3 {
+    width: 400px;
+    height: 200px;
 }
 
 /* Pagina de Contas */
