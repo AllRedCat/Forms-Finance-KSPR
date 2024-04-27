@@ -170,4 +170,78 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     //------------------------------------------//
+
+    //               Quinto Gráfico             //
+    const DATA_COUNT = 3;
+
+    // Valores para as categorias
+    const carValues = [3000, 2000]; // Valor alcançado e valor restante para Carro
+    const houseValues = [18000, 14000]; // Valor alcançado e valor restante para Casa
+    const serverValues = [1200, 1600]; // Valor alcançado e valor restante para Servidor
+
+    // Cores para as partes alcançadas e restantes
+    const achievedColors = ["#78B7BA", "#E3B505", "#DB504A"];
+    // const remainingColors = ["#F0F0F0", "#F0F0F0", "#F0F0F0"];
+
+    // Rótulos para as categorias
+    // const labels = ['Carro', 'Casa', 'Servidor'];
+
+    new Chart(chart_5, {
+        type: 'doughnut',
+        data: {
+            // labels: labels,
+            labels: ['Casa', 'Servidor'],
+            datasets: [
+                {
+                    data: carValues,
+                    // backgroundColor: achievedColors,
+                    backgroundColor: ["#ff5232", "#ff2e2e"],
+                    borderWidth: 0,
+                },
+                // {
+                //     data: [carValues[1], carValues[0]], // Inverter a ordem para mostrar a parte restante em primeiro lugar
+                //     backgroundColor: remainingColors,
+                //     borderWidth: 0,
+                // },
+                {
+                    data: houseValues,
+                    backgroundColor: achievedColors,
+                    borderWidth: 0,
+                },
+                // {
+                //     data: [houseValues[1], houseValues[0]], // Inverter a ordem para mostrar a parte restante em primeiro lugar
+                //     backgroundColor: remainingColors,
+                //     borderWidth: 0,
+                // },
+                {
+                    data: serverValues,
+                    backgroundColor: achievedColors,
+                    borderWidth: 0,
+                },
+                // {
+                //     data: [serverValues[1], serverValues[0]], // Inverter a ordem para mostrar a parte restante em primeiro lugar
+                //     backgroundColor: remainingColors,
+                //     borderWidth: 0,
+                // },
+            ],
+        },
+        options: {
+            cutout: '40%', // Aumentar a largura do anel para melhor visualização
+            plugins: {
+                legend: {
+                    display: false,
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            let label = context.label || '';
+                            label += ': ' + context.formattedValue;
+                            return label;
+                        }
+                    }
+                }
+            }
+        }
+    });
+    //------------------------------------------//
 });
