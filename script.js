@@ -168,34 +168,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         }
-        // type: 'doughnut',
-        // data: {
-        //     labels: ['Carteira de investimentos'],
-        //     datasets: [{
-        //         label: 'Renda fixa',
-        //         data: [600],
-        //     }, {
-        //         labael: 'Ações',
-        //         data: [500],
-        //     }, {
-        //         label: 'Crypto',
-        //         data: [300],
-        //     }, {
-        //         label: 'CDB',
-        //         data: [200],
-        //     }],
-        // },
-        // options: {
-        //     responsive: true,
-        //     plugins: {
-        //         legend: {
-        //             position: top,
-        //         },
-        //         title: {
-        //             display: true,
-        //         }
-        //     }
-        // }
     });
     //------------------------------------------//
 });
