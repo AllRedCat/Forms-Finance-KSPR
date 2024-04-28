@@ -243,3 +243,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     //------------------------------------------//
 });
+
+// Responsividade //
+// Largura da tela
+var larguraTela = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+// Altura da tela
+var alturaTela = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+function ScreenTest() {
+    alert("A resolução da tela é " + larguraTela + " x " + alturaTela);
+}
