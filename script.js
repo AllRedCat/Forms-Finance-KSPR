@@ -246,11 +246,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Responsividade //
 // Largura da tela
-var larguraTela = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
-// Altura da tela
-var alturaTela = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+var screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
 function ScreenTest() {
-    alert("A resolução da tela é " + larguraTela + " x " + alturaTela);
-}
+    alert("A resolução da tela é " + screenWidth + " x " + screenHeight     );
+};
