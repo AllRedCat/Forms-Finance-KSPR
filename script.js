@@ -253,3 +253,9 @@ var screenHeight = window.innerHeight || document.documentElement.clientHeight |
 function ScreenTest() {
     alert("A resolução da tela é " + screenWidth + " x " + screenHeight     );
 };
+
+function testIP() {
+    fetch('https://api.ipify.org?format=json')
+    .then(response => response.json())
+    .then(data => console.log(data.ip));  
+}
