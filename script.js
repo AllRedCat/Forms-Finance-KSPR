@@ -38,9 +38,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const chart_2 = document.getElementById('chart2');
     const chart_3 = document.getElementById('chart3');
     const chart_4 = document.getElementById('chart4');
-    const chart_5 = document.getElementById('chart5');
-    const chart_6 = document.getElementById('chart6');
-    const chart_7 = document.getElementById('chart7');
+    // const chart_5 = document.getElementById('chart5').getContext('2d');
+    // const chart_6 = document.getElementById('chart6');
+    // const chart_7 = document.getElementById('chart7');
     //-----------------------------------------------//
 
     // Variáveis para test //
@@ -174,73 +174,45 @@ document.addEventListener('DOMContentLoaded', function () {
     //------------------------------------------//
 
     //               Quinto Gráfico             //
-    new Chart(chart_5, {
-        type: 'bar',
-        data: {
-            labels: ['Meta 1'],
-            datasets: [{
-                label: 'Meta 1',
-                data: [1000],
-                backgroundColor: "#d63b46",
-            }],
-        },
-        options: {
-            display: true,
-            indexAxis: 'y',
-            scales: {
-                x: {
-                    beginAtZero: true,
-                    suggestedMax: 2000,
+    // Dados iniciais
+    const metas = ['Casa', 'Servidor', 'Carro'];
+    let valores = [1200, 2200, 14000];
+    // const valoresTotais = [3000, 3000, 28000];
+
+    // Atualizar dados do gráfico
+    function atualizarGrafico() {
+        const ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'horizontalBar',
+            data: {
+                labels: metas,
+                datasets: [{
+                    label: 'Metas Financeiras',
+                    data: valores,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
-    });
-    //------------------------------------------//
-    //               Sexto Gráfico              //
-    new Chart(chart_6, {
-        type: 'bar',
-        data: {
-            labels: ['Meta 1'],
-            datasets: [{
-                label: 'Meta 1',
-                data: [1000],
-                backgroundColor: "#d63b46",
-            }],
-        },
-        options: {
-            display: true,
-            indexAxis: 'y',
-            scales: {
-                x: {
-                    beginAtZero: true,
-                    suggestedMax: 2000,
-                }
-            }
-        }
-    });
-    //------------------------------------------//
-    //               Setimo Gráfico             //
-    new Chart(chart_7, {
-        type: 'bar',
-        data: {
-            labels: ['Meta 1'],
-            datasets: [{
-                label: 'Meta 1',
-                data: [1000],
-                backgroundColor: "#d63b46",
-            }],
-        },
-        options: {
-            display: true,
-            indexAxis: 'y',
-            scales: {
-                x: {
-                    beginAtZero: true,
-                    suggestedMax: 2000,
-                }
-            }
-        }
-    });
+        });
+    }
+
+    atualizarGrafico();
     //------------------------------------------//
 });
 
@@ -251,11 +223,11 @@ var screenWidth = window.innerWidth || document.documentElement.clientWidth || d
 var screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
 function ScreenTest() {
-    alert("A resolução da tela é " + screenWidth + " x " + screenHeight     );
+    alert("A resolução da tela é " + screenWidth + " x " + screenHeight);
 };
 
 function testIP() {
     fetch('https://api.ipify.org?format=json')
-    .then(response => response.json())
-    .then(data => console.log(data.ip));  
+        .then(response => response.json())
+        .then(data => console.log(data.ip));
 }
