@@ -226,6 +226,7 @@ function ScreenTest() {
     alert("A resolução da tela é " + screenWidth + " x " + screenHeight);
 };
 
+// Function to get Valid IP //
 function testIP() {
     fetch('https://api.ipify.org?format=json')
         .then(response => response.json())
