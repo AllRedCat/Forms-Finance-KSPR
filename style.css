@@ -79,6 +79,8 @@ main {
 .space-5 {
     width: 500px;
     height: 400px;
+    grid-column: span 2;
+    background-color: aqua;
 }
 
 .item-1,
