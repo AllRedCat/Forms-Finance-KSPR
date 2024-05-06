@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Visão geral         //
     var bank = 800;
     var entry = 1000;
-    var out = 700;
     // -- -- -- -- -- -- --//
     // Receita             //
     var base = [1000, 1200, 800];
@@ -81,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
             labels: ['Janeiro', 'Fereiro', 'Março', 'Abril'],
             datasets: [{
                 label: 'Caixa',
-                data: [bank, entry, out, 1000],
+                data: [800, 850, 700, 1000],
                 backgroundColor: "#fca311",
                 borderColor: "#fca311",
             }, {
