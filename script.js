@@ -272,6 +272,6 @@ var financeData = [
   
   // Chama a função para preencher a tabela quando a página carrega
   window.onload = function() {
-    preencherTabela();
+    financeTable();
   };
   
