@@ -246,6 +246,7 @@ var dadosFinanceiros = [
     { data: '2024-05-01', descricao: 'Compra de alimentos', valor: 50.00, tipo: 'Despesa' },
     { data: '2024-05-03', descricao: 'Salário', valor: 2000.00, tipo: 'Receita' },
     { data: '2024-05-10', descricao: 'Conta de luz', valor: 120.00, tipo: 'Despesa' },
+    { data: '2024-05-11', descricao: 'Conta de internet', valor : 150.00, tipo: 'Despesa'},
   ];
   
   // Função para preencher a tabela com os dados
