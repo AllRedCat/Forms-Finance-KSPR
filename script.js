@@ -243,10 +243,10 @@ function testIP() {
 // Tabela //
 // Dados fictícios para a tabela
 var dadosFinanceiros = [
-    { data: '2024-05-01', descricao: 'Compra de alimentos', valor: 50.00, tipo: 'Despesa' },
-    { data: '2024-05-03', descricao: 'Salário', valor: 2000.00, tipo: 'Receita' },
-    { data: '2024-05-10', descricao: 'Conta de luz', valor: 120.00, tipo: 'Despesa' },
-    { data: '2024-05-11', descricao: 'Conta de internet', valor : 150.00, tipo: 'Despesa'},
+    { data: '01/05/2024', descricao: 'Compra de alimentos', valor: 50.00, tipo: 'Despesa' },
+    { data: '03/05/2024', descricao: 'Salário', valor: 2000.00, tipo: 'Receita' },
+    { data: '10/05/2024', descricao: 'Conta de luz', valor: 120.00, tipo: 'Despesa' },
+    { data: '11/05/2024', descricao: 'Conta de internet', valor : 150.00, tipo: 'Despesa'},
   ];
   
   // Função para preencher a tabela com os dados
@@ -266,6 +266,8 @@ var dadosFinanceiros = [
       cell3.innerHTML = 'R$ ' + dado.valor.toFixed(2);
       cell4.innerHTML = dado.tipo;
     });
+
+    
   }
   
   // Chama a função para preencher a tabela quando a página carrega
