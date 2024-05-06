@@ -63,19 +63,14 @@ document.addEventListener('DOMContentLoaded', function () {
     var out = 700;
     // -- -- -- -- -- -- --//
     // Receita             //
-    var base1 = 1000;
-    var base2 = 1200;
-    var base3 = 800;
+    var base = [1000, 1200, 800];
     // -- -- -- -- -- -- --//
     // Despesas
-    var out1 = 500;
-    var out2 = 800;
-    var out3 = 300;
-    var out4 = 600;
+    var out = [500, 800, 300, 600];
     // -- -- -- -- -- -- --//
     // Somas
-    var somIn = base1 + base2 + base3;
-    var somOut = out1 + out2 + out3 + out4;
+    var somIn = base.reduce((totalBase, base) => totalBase + base, 0);
+    var somOut = out.reduce((totalOut, out) => totalOut + out, 0);
     // -- -- -- -- -- -- --//
     //---------------------//
 
@@ -120,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
             labels: ['Endrata 1', 'Entrada 2', 'Entrada 3'],
             datasets: [{
                 label: 'Receita',
-                data: [base1, base2, base3],
+                data: [base[0], base[1], base[2]],
                 backgroundColor: "#00aaff",
             }],
         },
@@ -141,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
             labels: ['Saida 1', 'Saida 2', 'Saida 3', 'Saida 4'],
             datasets: [{
                 label: 'Dispesas',
-                data: [out1, out2, out3, out4],
+                data: [out[0], out[1], out[2], out[3]],
                 backgroundColor: "#d63b46",
             }],
         },
