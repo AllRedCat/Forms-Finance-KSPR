@@ -242,7 +242,7 @@ function testIP() {
 
 // Tabela //
 // Dados fictícios para a tabela
-var dadosFinanceiros = [
+var financeData = [
     { date: '01/05/2024', description: 'Compra de alimentos', value: 50.00, tipe: 'Despesa' },
     { date: '03/05/2024', description: 'Salário', value: 2000.00, tipe: 'Receita' },
     { date: '10/05/2024', description: 'Conta de luz', value: 120.00, tipe: 'Despesa' },
@@ -253,7 +253,7 @@ var dadosFinanceiros = [
   function preencherTabela() {
     var table = document.getElementById("financeTable").getElementsByTagName('tbody')[0];
     
-    dadosFinanceiros.forEach(function(dado) {
+    financeData.forEach(function(dado) {
       var newRow = table.insertRow(table.length);
       
       var cell1 = newRow.insertCell(0);
