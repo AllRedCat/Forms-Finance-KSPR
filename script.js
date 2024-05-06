@@ -245,3 +245,36 @@ function testIP() {
         .then(response => response.json())
         .then(data => console.log(data.ip));
 }
+
+// Tabela //
+// Dados fictícios para a tabela
+var dadosFinanceiros = [
+    { data: '2024-05-01', descricao: 'Compra de alimentos', valor: 50.00, tipo: 'Despesa' },
+    { data: '2024-05-03', descricao: 'Salário', valor: 2000.00, tipo: 'Receita' },
+    { data: '2024-05-10', descricao: 'Conta de luz', valor: 120.00, tipo: 'Despesa' },
+  ];
+  
+  // Função para preencher a tabela com os dados
+  function preencherTabela() {
+    var table = document.getElementById("financeTable").getElementsByTagName('tbody')[0];
+    
+    dadosFinanceiros.forEach(function(dado) {
+      var newRow = table.insertRow(table.length);
+      
+      var cell1 = newRow.insertCell(0);
+      var cell2 = newRow.insertCell(1);
+      var cell3 = newRow.insertCell(2);
+      var cell4 = newRow.insertCell(3);
+  
+      cell1.innerHTML = dado.data;
+      cell2.innerHTML = dado.descricao;
+      cell3.innerHTML = 'R$ ' + dado.valor.toFixed(2);
+      cell4.innerHTML = dado.tipo;
+    });
+  }
+  
+  // Chama a função para preencher a tabela quando a página carrega
+  window.onload = function() {
+    preencherTabela();
+  };
+  
