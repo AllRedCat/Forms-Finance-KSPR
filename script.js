@@ -2,12 +2,14 @@ const homePage = document.getElementById('home');
 const acountForm = document.getElementById('acount');
 const categoriesForm = document.getElementById('categories');
 const transactionsForm = document.getElementById('transactions');
+const tablePage = document.getElementById('table');
 
 function showHome() {
     homePage.style.display = "grid"
     acountForm.style.display = "none";
     categoriesForm.style.display = "none";
     transactionsForm.style.display = "none";
+    tablePage.style.display = "none";
 }
 
 function showAcount() {
@@ -15,6 +17,7 @@ function showAcount() {
     acountForm.style.display = "flex";
     categoriesForm.style.display = "none";
     transactionsForm.style.display = "none";
+    tablePage.style.display = "none";
 }
 
 function showCategories() {
@@ -22,6 +25,7 @@ function showCategories() {
     acountForm.style.display = "none";
     categoriesForm.style.display = "flex";
     transactionsForm.style.display = "none";
+    tablePage.style.display = "none";
 }
 
 function showTransactions() {
@@ -29,6 +33,15 @@ function showTransactions() {
     acountForm.style.display = "none";
     categoriesForm.style.display = "none";
     transactionsForm.style.display = "flex";
+    tablePage.style.display = "none";
+}
+
+function showTable() {
+    homePage.style.display = "none"
+    acountForm.style.display = "none";
+    categoriesForm.style.display = "none";
+    transactionsForm.style.display = "none";
+    tablePage.style.display = "flex";
 }
 
 // Gráficos
