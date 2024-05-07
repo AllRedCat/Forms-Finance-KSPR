@@ -246,32 +246,31 @@ var financeData = [
     { date: '01/05/2024', description: 'Compra de alimentos', value: 50.00, tipe: 'Despesa' },
     { date: '03/05/2024', description: 'Salário', value: 2000.00, tipe: 'Receita' },
     { date: '10/05/2024', description: 'Conta de luz', value: 120.00, tipe: 'Despesa' },
-    { date: '11/05/2024', description: 'Conta de internet', value: 150.00, tipe: 'Despesa'},
-  ];
-  
-  // Função para preencher a tabela com os dados
-  function preencherTabela() {
+    { date: '11/05/2024', description: 'Conta de internet', value: 150.00, tipe: 'Despesa' },
+];
+
+// Função para preencher a tabela com os dados
+function financeTable() {
     var table = document.getElementById("financeTable").getElementsByTagName('tbody')[0];
-    
-    financeData.forEach(function(dado) {
-      var newRow = table.insertRow(table.length);
-      
-      var cell1 = newRow.insertCell(0);
-      var cell2 = newRow.insertCell(1);
-      var cell3 = newRow.insertCell(2);
-      var cell4 = newRow.insertCell(3);
-  
-      cell1.innerHTML = dado.date;
-      cell2.innerHTML = dado.description;
-      cell3.innerHTML = 'R$ ' + dado.value.toFixed(2);
-      cell4.innerHTML = dado.tipe;
+
+    financeData.forEach(function (dado) {
+        var newRow = table.insertRow(table.length);
+
+        var cell1 = newRow.insertCell(0);
+        var cell2 = newRow.insertCell(1);
+        var cell3 = newRow.insertCell(2);
+        var cell4 = newRow.insertCell(3);
+
+        cell1.innerHTML = dado.date;
+        cell2.innerHTML = dado.description;
+        cell3.innerHTML = 'R$ ' + dado.value.toFixed(2);
+        cell4.innerHTML = dado.tipe;
     });
 
-    
-  }
-  
-  // Chama a função para preencher a tabela quando a página carrega
-  window.onload = function() {
+
+}
+
+// Chama a função para preencher a tabela quando a página carrega
+window.onload = function () {
     financeTable();
-  };
-  
+};
