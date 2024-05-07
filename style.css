@@ -1,8 +1,14 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;700&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
+
 /* Geral */
 * {
     padding: 0;
     text-decoration: none;
     list-style: none;
+    font-family: "Ubuntu Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 html,
@@ -228,7 +234,18 @@ main {
 /* Pagina da tabela */
 .table {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: -200px 0 0 0;
+}
+
+.containerTable {
+    display: flex;
+    gap: 2rem;
+}
+
+td {
+    text-align: center;
 }
 
 table {
