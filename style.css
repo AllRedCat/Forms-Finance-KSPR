@@ -227,7 +227,7 @@ main {
 
 /* Pagina da tabela */
 .table {
-    /* flex-direction: column; */
+    flex-direction: column;
     margin: -200px 0 0 0;
 }
 
