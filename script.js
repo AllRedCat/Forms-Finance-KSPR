@@ -182,44 +182,44 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //               Quinto Gráfico             //
     // Dados iniciais
-    const metas = ['Casa', 'Servidor', 'Carro'];
-    let valores = [1200, 2200, 14000];
+    // const metas = ['Casa', 'Servidor', 'Carro'];
+    // let valores = [1200, 2200, 14000];
     // const valoresTotais = [3000, 3000, 28000];
 
     // Atualizar dados do gráfico
-    function atualizarGrafico() {
-        const ctx = document.getElementById('myChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'horizontalBar',
-            data: {
-                labels: metas,
-                datasets: [{
-                    label: 'Metas Financeiras',
-                    data: valores,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.5)',
-                        'rgba(54, 162, 235, 0.5)',
-                        'rgba(255, 206, 86, 0.5)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    x: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    }
+    // function atualizarGrafico() {
+    //     const ctx = document.getElementById('myChart').getContext('2d');
+    //     new Chart(ctx, {
+    //         type: 'horizontalBar',
+    //         data: {
+    //             labels: metas,
+    //             datasets: [{
+    //                 label: 'Metas Financeiras',
+    //                 data: valores,
+    //                 backgroundColor: [
+    //                     'rgba(255, 99, 132, 0.5)',
+    //                     'rgba(54, 162, 235, 0.5)',
+    //                     'rgba(255, 206, 86, 0.5)'
+    //                 ],
+    //                 borderColor: [
+    //                     'rgba(255, 99, 132, 1)',
+    //                     'rgba(54, 162, 235, 1)',
+    //                     'rgba(255, 206, 86, 1)'
+    //                 ],
+    //                 borderWidth: 1
+    //             }]
+    //         },
+    //         options: {
+    //             scales: {
+    //                 x: {
+    //                     beginAtZero: true
+    //                 }
+    //             }
+    //         }
+    //     });
+    // }
 
-    atualizarGrafico();
+    // atualizarGrafico();
     //------------------------------------------//
 });
 
@@ -242,18 +242,17 @@ function testIP() {
 
 // Tabela //
 // Dados fictícios para a tabela
-var financeData = [
+var entryData = [
     { date: '01/05/2024', description: 'Compra de alimentos', value: 50.00, tipe: 'Despesa' },
-    { date: '03/05/2024', description: 'Salário', value: 2000.00, tipe: 'Receita' },
     { date: '10/05/2024', description: 'Conta de luz', value: 120.00, tipe: 'Despesa' },
     { date: '11/05/2024', description: 'Conta de internet', value: 150.00, tipe: 'Despesa' },
 ];
 
 // Função para preencher a tabela com os dados
-function financeTable() {
-    var table = document.getElementById("financeTable").getElementsByTagName('tbody')[0];
+function entryTable() {
+    var table = document.getElementById("entryTable").getElementsByTagName('tbody')[0];
 
-    financeData.forEach(function (dado) {
+    entryData.forEach(function (dado) {
         var newRow = table.insertRow(table.length);
 
         var cell1 = newRow.insertCell(0);
@@ -266,11 +265,36 @@ function financeTable() {
         cell3.innerHTML = 'R$ ' + dado.value.toFixed(2);
         cell4.innerHTML = dado.tipe;
     });
+};
 
+var outData = [
+    { date: '03/05/2024', description: 'Salário', value: 2000.00, tipe: 'Receita' },
+    { date: '06/05/2024', description: 'Recebimento', value: 450.00, tipe: 'Receita' },
+    { date: '06/05/2024', description: 'Recebimento', value: 450.00, tipe: 'Receita' },
+];
 
-}
+function outTable() {
+    var table = document.getElementById("outTable");
+    var tbody = table.getElementsByTagName('tbody')[0];
+
+    outData.forEach(function (dado) {
+        var newRowOut = tbody.insertRow(tbody.length);
+
+        var cellOut1 = newRowOut.insertCell(0);
+        var cellOut2 = newRowOut.insertCell(1);
+        var cellOut3 = newRowOut.insertCell(2);
+        var cellOut4 = newRowOut.insertCell(3);
+
+        cellOut1.innerHTML = dado.date;
+        cellOut2.innerHTML = dado.description;
+        cellOut3.innerHTML = 'R$ ' + dado.value.toFixed(2);
+        cellOut4.innerHTML = dado.tipe;
+    });
+};
+
 
 // Chama a função para preencher a tabela quando a página carrega
 window.onload = function () {
-    financeTable();
+    entryTable();
+    outTable();
 };
