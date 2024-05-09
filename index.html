@@ -81,14 +81,14 @@
                 <input type="submit" value="Submit">
             </div>
         </form>
-        <form action id="transactions" class="transactions" style="display: none;">
+        <form action id="transactions" class="transactions" style="display: none;" onsubmit="handleSubmit(event)">
             <h2>Transações</h2>
             <div class="TransactionsContainer">
-                <label for>Valor
-                    <input type="number" min="0.00" class="inputSpace">
+                <label for="value" class="value" id="valueSpace">Valor
+                    <input type="number" min="0.00" class="inputSpace" id="value">
                 </label>
                 <div class="TransactionsType">
-                    <label for class="LabelType">Tipo
+                    <label for="type" class="LabelType">Tipo
                         <div class="in">
                             <input type="radio" name="tipo" value="Entrada">
                             <label for>Entrada</label>
@@ -101,7 +101,7 @@
                 </div>
                 <div class="dateTime">
                     <label for class="dateItem">Data
-                        <input type="date" class="inputSpace">
+                        <input type="date" class="inputSpace" id="date">
                     </label>
                     <label for class="timeItem">Hora
                         <input type="number" class="inputSpace">
@@ -111,11 +111,12 @@
                     <input type="number" class="inputSpace">
                 </label>
                 <label for>Categoria
-                    <input type="text" class="inputSpace">
+                    <input type="text" class="inputSpace" id="description">
                 </label>
             </div>
             <div class="TransactionsBtn">
                 <input type="reset" value="Cleam">
+                <!-- <input type="button" value="Submit" onclick="handleSubmit()"> -->
                 <input type="submit" value="Submit">
             </div>
         </form>
@@ -149,6 +150,7 @@
                     </tbody>
                 </table>
             </div>
+        <button onclick="reloadTalbe()">Recarregar</button>    
         </div>
     </main>
     <script src="script.js"></script>

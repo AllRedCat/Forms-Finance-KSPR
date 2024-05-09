@@ -243,15 +243,15 @@ function testIP() {
 // Tabela //
 // Dados fictícios para a tabela
 var entryData = [
-    { date: '01/05/2024', description: 'Compra de alimentos', value: 50.00, tipe: 'Despesa' },
-    { date: '10/05/2024', description: 'Conta de luz', value: 120.00, tipe: 'Despesa' },
-    { date: '11/05/2024', description: 'Conta de internet', value: 150.00, tipe: 'Despesa' },
+    { date: '03/05/2024', description: 'Salário', value: 2000.00, tipe: 'Receita' },
+    { date: '06/05/2024', description: 'Recebimento', value: 450.00, tipe: 'Receita' },
+    { date: '06/05/2024', description: 'Recebimento', value: 450.00, tipe: 'Receita' },
 ];
 
 // Função para preencher a tabela com os dados
 function entryTable() {
     var table = document.getElementById("entryTable").getElementsByTagName('tbody')[0];
-
+    
     entryData.forEach(function (dado) {
         var newRow = table.insertRow(table.length);
 
@@ -268,9 +268,9 @@ function entryTable() {
 };
 
 var outData = [
-    { date: '03/05/2024', description: 'Salário', value: 2000.00, tipe: 'Receita' },
-    { date: '06/05/2024', description: 'Recebimento', value: 450.00, tipe: 'Receita' },
-    { date: '06/05/2024', description: 'Recebimento', value: 450.00, tipe: 'Receita' },
+    { date: '01/05/2024', description: 'Compra de alimentos', value: 50.00, tipe: 'Despesa' },
+    { date: '10/05/2024', description: 'Conta de luz', value: 120.00, tipe: 'Despesa' },
+    { date: '11/05/2024', description: 'Conta de internet', value: 150.00, tipe: 'Despesa' },
 ];
 
 function outTable() {
@@ -297,4 +297,39 @@ function outTable() {
 window.onload = function () {
     entryTable();
     outTable();
+};
+
+function reloadTalbe() {
+    entryTable();
+    outTable();
+}
+
+// Adicionar objeto a array
+
+function handleSubmit(event) {
+
+    event.preventDefault();
+
+    // console.log("pressionado");
+    var newTransaction = {
+        // date: this.querySelector('.dateItem .inputSpace').value,
+        // description: this.querySelector('.Categoria .inputSpace').value,
+        // value: parseFloat(this.querySelector('.Valor .inputSpace').value),
+        // tipe: this.querySelector('.TransactionsType input:checked').value
+        date: document.getElementById('date').value,
+        description: document.getElementById('description').value,
+        // value: parsetFloat(document.getElementById('value').value),
+        // value: parseFloat(this.querySelector('#value .inputSpace').value),
+        value: parseFloat(document.getElementById('value').value),
+        tipe: document.querySelector('.TransactionsType input:checked').value
+    };
+
+    if (newTransaction.tipe === 'Entrada') {
+        entryData.push(newTransaction);
+    } else if (newTransaction.tipe === 'Saida') {
+        outData.push(newTransaction);
+    }
+
+    console.log(entryData);
+    console.log(outData);
 };
