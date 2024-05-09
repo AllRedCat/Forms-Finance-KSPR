@@ -51,9 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const chart_2 = document.getElementById('chart2');
     const chart_3 = document.getElementById('chart3');
     const chart_4 = document.getElementById('chart4');
-    // const chart_5 = document.getElementById('chart5').getContext('2d');
-    // const chart_6 = document.getElementById('chart6');
-    // const chart_7 = document.getElementById('chart7');
     //-----------------------------------------------//
 
     // Variáveis para test //
@@ -179,48 +176,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     //------------------------------------------//
-
-    //               Quinto Gráfico             //
-    // Dados iniciais
-    // const metas = ['Casa', 'Servidor', 'Carro'];
-    // let valores = [1200, 2200, 14000];
-    // const valoresTotais = [3000, 3000, 28000];
-
-    // Atualizar dados do gráfico
-    // function atualizarGrafico() {
-    //     const ctx = document.getElementById('myChart').getContext('2d');
-    //     new Chart(ctx, {
-    //         type: 'horizontalBar',
-    //         data: {
-    //             labels: metas,
-    //             datasets: [{
-    //                 label: 'Metas Financeiras',
-    //                 data: valores,
-    //                 backgroundColor: [
-    //                     'rgba(255, 99, 132, 0.5)',
-    //                     'rgba(54, 162, 235, 0.5)',
-    //                     'rgba(255, 206, 86, 0.5)'
-    //                 ],
-    //                 borderColor: [
-    //                     'rgba(255, 99, 132, 1)',
-    //                     'rgba(54, 162, 235, 1)',
-    //                     'rgba(255, 206, 86, 1)'
-    //                 ],
-    //                 borderWidth: 1
-    //             }]
-    //         },
-    //         options: {
-    //             scales: {
-    //                 x: {
-    //                     beginAtZero: true
-    //                 }
-    //             }
-    //         }
-    //     });
-    // }
-
-    // atualizarGrafico();
-    //------------------------------------------//
 });
 
 // Responsividade //
@@ -310,16 +265,9 @@ function handleSubmit(event) {
 
     event.preventDefault();
 
-    // console.log("pressionado");
     var newTransaction = {
-        // date: this.querySelector('.dateItem .inputSpace').value,
-        // description: this.querySelector('.Categoria .inputSpace').value,
-        // value: parseFloat(this.querySelector('.Valor .inputSpace').value),
-        // tipe: this.querySelector('.TransactionsType input:checked').value
         date: document.getElementById('date').value,
         description: document.getElementById('description').value,
-        // value: parsetFloat(document.getElementById('value').value),
-        // value: parseFloat(this.querySelector('#value .inputSpace').value),
         value: parseFloat(document.getElementById('value').value),
         tipe: document.querySelector('.TransactionsType input:checked').value
     };
@@ -329,7 +277,4 @@ function handleSubmit(event) {
     } else if (newTransaction.tipe === 'Saida') {
         outData.push(newTransaction);
     }
-
-    console.log(entryData);
-    console.log(outData);
 };
