@@ -277,4 +277,11 @@ function handleSubmit(event) {
     } else if (newTransaction.tipe === 'Saida') {
         outData.push(newTransaction);
     }
+
+    document.getElementById('value').value = '';
+    document.querySelector('.TransactionsType input:checked').checked = false;
+    document.getElementById('date').value = '';
+    document.getElementById('description').value = '';
+    document.getElementById('acountID').value = '';
+    document.getElementById('hour').value = '';
 };
