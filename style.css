@@ -226,6 +226,16 @@ main {
     gap: 1rem;
 }
 
+.TransactionBtn input {
+    border: none;
+    background-color: red;
+}
+
+.resetBtn {
+    background-color: red;
+    border: none;
+}
+
 .LabelType {
     display: flex;
     flex-direction: column;
