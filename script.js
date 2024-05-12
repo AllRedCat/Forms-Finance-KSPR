@@ -44,6 +44,23 @@ function showTable() {
     tablePage.style.display = "flex";
 }
 
+// Botão da nav bar
+const navToggle = document.getElementById('navBtn');
+const primaryNav = document.getElementById('primary-navigation');
+
+navToggle.addEventListener('click', () => {
+    const visibility = primaryNav.getAttribute("data-visible");
+    
+    if (visibility === "false") {
+        primaryNav.setAttribute("data-visible", true);
+        navToggle.setAttribute("aria-expanded", true);
+    }
+    else if (visibility === "true") {
+        primaryNav.setAtribute("data-visible", false);
+        navToggle.setAtribute("aria-expanded", false);
+    }
+})
+
 // Gráficos
 document.addEventListener('DOMContentLoaded', function () {
     //             Import dos 'canvas'               //

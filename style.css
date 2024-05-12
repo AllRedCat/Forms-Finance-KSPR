@@ -44,6 +44,14 @@ header button:hover {
     background-color: rgb(168, 168, 168);
 }
 
+.mobile-nav-toggle {
+    display: none;
+}
+
+.nav-links {
+    display: flex;
+}
+
 /* Corpo */
 main {
     height: 100%;
@@ -279,6 +287,44 @@ th {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr;
+    }
+    
+    .nav-links {
+        position: fixed;
+        z-index: 1000;
+        inset: 0 0 0 30%;
+        background-color: hsl(0 0% 50% / 0.2);
+        backdrop-filter: blur;
+        flex-direction: column;
+        padding: min(30vh, 10rem) 3rem;
+        transform: translate(115%);
+        transition: transform 350ms ease-out;
+    }
+    
+    .nav-links[data-visible="true"] {
+        transform: translate(15%);
+    }
+    
+    .mobile-nav-toggle {
+        display: block;
+        position: absolute;
+        z-index: 9999;
+        background: none;
+        border: none;
+        width: 40px;
+        top: 2rem;
+        right: 3rem;
+    }
+    
+    .mobile-nav-toggle:active {
+        background-color: indianred;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+    
+    .mobile-nav-toggle img {
+        width: 40px;
     }
 
     .space-1,

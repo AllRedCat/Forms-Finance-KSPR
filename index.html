@@ -13,15 +13,17 @@
         <div class="home-btn">
             <button onclick="showHome()">Home</button>
         </div>
-        <!-- <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
-            <img src="img/cardapio.png">
-        </button> -->
-        <nav>
-            <ul>
-                <li><button id="AcountBtn" onclick="showAcount()">Contas</button></li>
-                <li><button id="CategoriesBtn" onclick="showCategories()">Categorias</button></li>
-                <li><button id="TransactionsBtn" onclick="showTransactions()">Transações</button></li>
-                <li><button id="TableBtn" onclick="showTable()">Tabela</button></li>
+        <div>
+        <button id="navBtn" class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+            <img src="img/cardapio.png" style="width: 40px">
+        </button>
+        </div>
+        <nav class="navBar" id="navBar">
+            <ul id="primary-navigation" data-visible="false" class="nav-links">
+                <li class="active"><button id="AcountBtn" onclick="showAcount()">Contas</button></li>
+                <li class="active"><button id="CategoriesBtn" onclick="showCategories()">Categorias</button></li>
+                <li class="active"><button id="TransactionsBtn" onclick="showTransactions()">Transações</button></li>
+                <li class="active"><button id="TableBtn" onclick="showTable()">Tabela</button></li>
             </ul>
         </nav>
     </header>
@@ -132,7 +134,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    </tbody>
+                    </tbody=>
                 </table>
                 <table id="outTable">
                     <thead>
