@@ -50,14 +50,14 @@ const primaryNav = document.getElementById('primary-navigation');
 
 navToggle.addEventListener('click', () => {
     const visibility = primaryNav.getAttribute("data-visible");
-    
+
     if (visibility === "false") {
         primaryNav.setAttribute("data-visible", true);
         navToggle.setAttribute("aria-expanded", true);
     }
     else if (visibility === "true") {
-        primaryNav.setAtribute("data-visible", false);
-        navToggle.setAtribute("aria-expanded", false);
+        primaryNav.setAttribute("data-visible", false);
+        navToggle.setAttribute("aria-expanded", false);
     }
 })
 
@@ -223,7 +223,7 @@ var entryData = [
 // Função para preencher a tabela com os dados
 function entryTable() {
     var table = document.getElementById("entryTable").getElementsByTagName('tbody')[0];
-    
+
     entryData.forEach(function (dado) {
         var newRow = table.insertRow(table.length);
 

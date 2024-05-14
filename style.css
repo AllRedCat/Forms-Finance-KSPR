@@ -321,9 +321,9 @@ th {
 
 @media screen and (max-width: 500px) {
     body {
-            overflow-y: scroll;  
+        overflow-y: scroll;
     }
-        
+
     .Home {
         margin: -24rem 0 0 0;
         width: 90%;
@@ -335,7 +335,7 @@ th {
         /* grid-template-columns: 1fr 1fr 1fr; */
         /* grid-template-rows: 1fr 1fr; */
     }
-    
+
     .nav-links {
         position: fixed;
         z-index: 1000;
@@ -351,7 +351,7 @@ th {
     .nav-links[data-visible="true"] {
         transform: translate(15%);
     }
-    
+
     .mobile-nav-toggle {
         display: block;
         position: absolute;
@@ -362,18 +362,18 @@ th {
         top: 2rem;
         right: 3rem;
     }
-    
+
     .mobile-nav-toggle:active {
         background-color: indianred;
         width: 40px;
         height: 40px;
         border-radius: 10px;
     }
-    
+
     .mobile-nav-toggle img {
         width: 40px;
     }
-        
+
     .space-1,
     .space-2,
     .space-3,
@@ -384,7 +384,7 @@ th {
         justify-content: center;
         align-items: center;
     }
-    
+
     .space-4 {
         width: 100%;
         height: 250px;
