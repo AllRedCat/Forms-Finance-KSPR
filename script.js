@@ -295,9 +295,12 @@ function handleSubmit(event) {
         outData.push(newTransaction);
     }
 
+    console.log(entryData);
+    console.log(outData);
+
     document.getElementById('value').value = '';
-    document.querySelector('.TransactionsType input:checked').checked = false;
-    document.getElementById('date').value = '';
+    // document.querySelector('.TransactionsType input:checked').checked = false;
+    // document.getElementById('date').value = '';
     document.getElementById('description').value = '';
     document.getElementById('acountID').value = '';
     document.getElementById('hour').value = '';
