@@ -17,6 +17,7 @@ Utiliza a biblioteca Chart.js para poder criar os gráficos da dashboard finance
 
 ## Em Progresso
 - [ ] Responsividade para dispositivos moveis
+- [ ] Remover abas inuteis
 
 ## Pendências
 - [ ] Criação de pagina para importação de arquivos .csv
