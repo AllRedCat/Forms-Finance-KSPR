@@ -340,12 +340,6 @@ th {
         /* grid-template-rows: 1fr 1fr; */
     }
     
-    @media screen and (max-heigh: 900px) {
-        .Home {
-            margin: -240rem 0 0 0;
-        }
-    }
-
     .nav-links {
         position: fixed;
         z-index: 1000;
