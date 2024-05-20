@@ -18,6 +18,8 @@ function showAcount() {
     categoriesForm.style.display = "none";
     transactionsForm.style.display = "none";
     tablePage.style.display = "none";
+    primaryNav.setAttribute("data-visible", false);
+    navToggle.setAttribute("aria-expanded", false);
 }
 
 function showCategories() {
@@ -26,6 +28,8 @@ function showCategories() {
     categoriesForm.style.display = "flex";
     transactionsForm.style.display = "none";
     tablePage.style.display = "none";
+    primaryNav.setAttribute("data-visible", false);
+    navToggle.setAttribute("aria-expanded", false);
 }
 
 function showTransactions() {
@@ -34,6 +38,8 @@ function showTransactions() {
     categoriesForm.style.display = "none";
     transactionsForm.style.display = "flex";
     tablePage.style.display = "none";
+    primaryNav.setAttribute("data-visible", false);
+    navToggle.setAttribute("aria-expanded", false);
 }
 
 function showTable() {
@@ -42,6 +48,8 @@ function showTable() {
     categoriesForm.style.display = "none";
     transactionsForm.style.display = "none";
     tablePage.style.display = "flex";
+    primaryNav.setAttribute("data-visible", false);
+    navToggle.setAttribute("aria-expanded", false);
 }
 
 // Botão da nav bar
