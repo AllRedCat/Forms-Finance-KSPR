@@ -10,6 +10,8 @@ function showHome() {
     categoriesForm.style.display = "none";
     transactionsForm.style.display = "none";
     tablePage.style.display = "none";
+    primaryNav.setAttribute("data-visible", false);
+    navToggle.setAttribute("aria-expanded", false);
 }
 
 function showAcount() {
