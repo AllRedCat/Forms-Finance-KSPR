@@ -53,14 +53,14 @@
                 </div>
             </div>
         </div>
-        <form action id="acount" class="acount" style="display: none;">
+        <form action id="acount" class="acount" style="display: none;" onsubmit="submitAcount(event)">
             <h2>Contas</h2>
             <div class="AcountContainer">
                 <label for>Nome
                     <input type="text" id="NameAcount" class="name">
                 </label>
                 <label for>Descrição
-                    <input type="text" id="DescriptionAcount" class="description">
+                    <input type="text" id="descriptionAcount" class="description">
                 </label>
             </div>
             <div class="AcountBtns">
@@ -110,9 +110,9 @@
                 <label>Conta
                     <select name="AcountSelect" id="AcountSelect">
                         <option value="Caixa">Caixa</option>
-                        <option value="Nubank">Nubank</option>
+                        <!-- <option value="Nubank">Nubank</option>
                         <option value="Nubank-MEI">Nubank MEI</option>
-                        <option value="Nubank-Credito">Nubank Crédito</option>
+                        <option value="Nubank-Credito">Nubank Crédito</option> -->
                     </select>
                 </label>
                 <label for>Descrição

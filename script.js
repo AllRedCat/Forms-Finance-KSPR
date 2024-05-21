@@ -278,12 +278,39 @@ function outTable() {
     });
 };
 
+function acountSection() {
+    var acountSelect = document.getElementById('AcountSelect');
+    var acountOption = document.createElement('option');
+}
 
 // Chama a função para preencher a tabela quando a página carrega
 window.onload = function () {
     entryTable();
     outTable();
+    acountSection();
 };
+
+//contas
+var acounts = [
+    { name: 'Caixa' },
+    { name: 'Nubank' },
+    { name: 'Nubank MEI' },
+    { name: 'Nubank Crédito' }
+]
+
+// Criar nova conta
+function submitAcount(event) {
+    event.preventDefault();
+
+    var newAcount = { name: document.getElementById('NameAcount').value }
+
+    acounts.push(newAcount);
+
+    document.getElementById('NameAcount').value = '';
+    document.getElementById('descriptionAcount').value = '';
+
+    console.log(acounts);
+}
 
 function reloadTalbe() {
     entryTable();
