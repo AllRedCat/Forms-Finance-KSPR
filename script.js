@@ -225,9 +225,9 @@ function testIP() {
 // Tabela //
 // Dados fictícios para a tabela
 var entryData = [
-    { date: '03/05/2024', description: 'Salário', value: 2000.00, tipe: 'Receita' },
-    { date: '06/05/2024', description: 'Recebimento', value: 450.00, tipe: 'Receita' },
-    { date: '06/05/2024', description: 'Recebimento', value: 450.00, tipe: 'Receita' },
+    { date: '03/05/2024', description: 'Salário', conta: 'Caixa', value: 2000.00, tipe: 'Receita' },
+    { date: '06/05/2024', description: 'Recebimento', conta: 'Nubank MEI', value: 450.00, tipe: 'Receita' },
+    { date: '06/05/2024', description: 'Recebimento', conta: 'Nubank MEI', value: 450.00, tipe: 'Receita' },
 ];
 
 // Função para preencher a tabela com os dados
@@ -241,18 +241,20 @@ function entryTable() {
         var cell2 = newRow.insertCell(1);
         var cell3 = newRow.insertCell(2);
         var cell4 = newRow.insertCell(3);
+        var cell5 = newRow.insertCell(4);
 
         cell1.innerHTML = dado.date;
         cell2.innerHTML = dado.description;
         cell3.innerHTML = 'R$ ' + dado.value.toFixed(2);
         cell4.innerHTML = dado.tipe;
+        cell5.innerHTML = dado.conta;
     });
 };
 
 var outData = [
-    { date: '01/05/2024', description: 'Compra de alimentos', value: 50.00, tipe: 'Despesa' },
-    { date: '10/05/2024', description: 'Conta de luz', value: 120.00, tipe: 'Despesa' },
-    { date: '11/05/2024', description: 'Conta de internet', value: 150.00, tipe: 'Despesa' },
+    { date: '01/05/2024', description: 'Compra de alimentos', conta: 'Nubank Crédito', value: 50.00, tipe: 'Despesa' },
+    { date: '10/05/2024', description: 'Conta de luz', conta: 'Caixa', value: 120.00, tipe: 'Despesa' },
+    { date: '11/05/2024', description: 'Conta de internet', conta: 'Nubank MEI', value: 150.00, tipe: 'Despesa' },
 ];
 
 function outTable() {
@@ -266,11 +268,13 @@ function outTable() {
         var cellOut2 = newRowOut.insertCell(1);
         var cellOut3 = newRowOut.insertCell(2);
         var cellOut4 = newRowOut.insertCell(3);
+        var cellOut5 = newRowOut.insertCell(4);
 
         cellOut1.innerHTML = dado.date;
         cellOut2.innerHTML = dado.description;
         cellOut3.innerHTML = 'R$ ' + dado.value.toFixed(2);
         cellOut4.innerHTML = dado.tipe;
+        cellOut5.innerHTML = dado.conta;
     });
 };
 
@@ -296,7 +300,8 @@ function handleSubmit(event) {
         date: document.getElementById('date').value,
         description: document.getElementById('description').value,
         value: parseFloat(document.getElementById('value').value),
-        tipe: document.querySelector('.TransactionsType input:checked').value
+        tipe: document.querySelector('.TransactionsType input:checked').value,
+        conta: document.getElementById('AcountSelect').value
     };
 
     if (newTransaction.tipe === 'Entrada') {
@@ -309,9 +314,6 @@ function handleSubmit(event) {
     console.log(outData);
 
     document.getElementById('value').value = '';
-    // document.querySelector('.TransactionsType input:checked').checked = false;
-    // document.getElementById('date').value = '';
     document.getElementById('description').value = '';
-    document.getElementById('acountID').value = '';
     document.getElementById('hour').value = '';
 };
