@@ -279,8 +279,14 @@ function outTable() {
 };
 
 function acountSection() {
-    var acountSelect = document.getElementById('AcountSelect');
-    var acountOption = document.createElement('option');
+    var accountSelect = document.getElementById('AcountSelect');
+
+    accounts.forEach(account => {
+        var accountOption = document.createElement('option');
+        accountOption.value = account.name;
+        accountOption.textContent = account.name;
+        accountSelect.appendChild(accountOption);
+    });
 }
 
 // Chama a função para preencher a tabela quando a página carrega
@@ -291,7 +297,7 @@ window.onload = function () {
 };
 
 //contas
-var acounts = [
+var accounts = [
     { name: 'Caixa' },
     { name: 'Nubank' },
     { name: 'Nubank MEI' },
@@ -304,12 +310,12 @@ function submitAcount(event) {
 
     var newAcount = { name: document.getElementById('NameAcount').value }
 
-    acounts.push(newAcount);
+    accounts.push(newAcount);
 
     document.getElementById('NameAcount').value = '';
     document.getElementById('descriptionAcount').value = '';
 
-    console.log(acounts);
+    console.log(accounts);
 }
 
 function reloadTalbe() {
