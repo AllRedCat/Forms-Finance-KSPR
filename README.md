@@ -14,6 +14,8 @@ Utiliza a biblioteca Chart.js para poder criar os gráficos da dashboard finance
 - [x] Criação dos formulários financeiros
 - [x] Desenvolvimento da página inicial
 - [x] Implementação da barra de navegação
+- [x] Criar coluna de 'conta' nas tabelas
+- [x] Adicionar campo de descriação no formalário de transações
 
 ## Em Progresso
 - [ ] Responsividade para dispositivos moveis
@@ -23,6 +25,5 @@ Utiliza a biblioteca Chart.js para poder criar os gráficos da dashboard finance
 
 ## Pendências
 - [ ] Criação de pagina para importação de arquivos .csv
-- [ ] Adicionar campo de descriação no formalário de transações
-- [ ] Criar coluna de categoria nas tabelas
 - [ ] Eliminar espaço vago na pagina home
+- [ ] Adicionar aba de categoria (Será um select)
