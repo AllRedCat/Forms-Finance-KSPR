@@ -16,13 +16,13 @@ Utiliza a biblioteca Chart.js para poder criar os gráficos da dashboard finance
 - [x] Implementação da barra de navegação
 - [x] Criar coluna de 'conta' nas tabelas
 - [x] Adicionar campo de descriação no formalário de transações
+- [x] Funcionalidade da aba de adicionar contas
 
 ## Em Progresso
 - [ ] Responsividade para dispositivos moveis
 - [ ] Remover abas inuteis
 - [ ] Estilização da barra de navegação mobile
 - [ ] Ajustar botão da barra de navegação mobile
-- [ ] Funcionalidade da aba de adicionar contas
 
 ## Pendências
 - [ ] Criação de pagina para importação de arquivos .csv
