@@ -292,10 +292,6 @@ function outTable() {
 function acountSection() {
     var accountSelect = document.getElementById('AcountSelect');
 
-    while (accountSelect.firstChild) {
-        accountSelect.removeChild(accountSelect.firstChild);
-    }
-
     accounts.forEach(account => {
         var accountOption = document.createElement('option');
         accountOption.value = account.name;
@@ -335,7 +331,7 @@ window.onload = function () {
 // Atualiza as funções constantemente
 setInterval(entryTable, 100);
 setInterval(outTable, 100);
-setInterval(acountSection, 100);
+// setInterval(acountSection, 100);
 setInterval(accountTable, 100);
 
 // Array de contas
