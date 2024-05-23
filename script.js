@@ -255,7 +255,7 @@ function entryTable() {
     });
 };
 
-// Array de transações de saida
+// Array de transações de
 var outData = [
     { date: '01/05/2024', description: 'Compra de alimentos', conta: 'Nubank Crédito', value: 50.00, tipe: 'Despesa' },
     { date: '10/05/2024', description: 'Conta de luz', conta: 'Caixa', value: 120.00, tipe: 'Despesa' },
@@ -291,6 +291,10 @@ function outTable() {
 // Adiciona às contas à aba de seleção no formalário de transações
 function acountSection() {
     var accountSelect = document.getElementById('AcountSelect');
+
+    while (accountSelect.firstChild) {
+        accountSelect.removeChild(accountSelect.firstChild);
+    }
 
     accounts.forEach(account => {
         var accountOption = document.createElement('option');
