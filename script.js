@@ -255,12 +255,14 @@ function entryTable() {
     });
 };
 
+// Array de transações de saida
 var outData = [
     { date: '01/05/2024', description: 'Compra de alimentos', conta: 'Nubank Crédito', value: 50.00, tipe: 'Despesa' },
     { date: '10/05/2024', description: 'Conta de luz', conta: 'Caixa', value: 120.00, tipe: 'Despesa' },
     { date: '11/05/2024', description: 'Conta de internet', conta: 'Nubank MEI', value: 150.00, tipe: 'Despesa' },
 ];
 
+// Adiciona as transações à tabela de saida
 function outTable() {
     var table = document.getElementById("outTable");
     var tbody = table.getElementsByTagName('tbody')[0];
@@ -286,6 +288,7 @@ function outTable() {
     });
 };
 
+// Adiciona às contas à aba de seleção no formalário de transações
 function acountSection() {
     var accountSelect = document.getElementById('AcountSelect');
 
@@ -297,6 +300,7 @@ function acountSection() {
     });
 }
 
+// Adiciona objetos das contas à tabela
 function accountTable() {
     var tableAccount = document.getElementById('accountTable');
     var accountBody = tableAccount.getElementsByTagName(`tbody`)[0];
@@ -324,20 +328,21 @@ window.onload = function () {
     accountTable();
 };
 
+// Atualiza as funções constantemente
 setInterval(entryTable, 100);
 setInterval(outTable, 100);
 setInterval(acountSection, 100);
 setInterval(accountTable, 100);
 
-//contas
-var name = accounts = [
+// Array de contas
+var accounts = [
     { name: 'Caixa', description: 'Conta de recebimentos' },
     { name: 'Nubank', description: 'Conta corrente' },
     { name: 'Nubank MEI', description: 'Conta de recebimentos' },
     { name: 'Nubank Crédito', description:`Conta de uso` }
 ]
 
-// Criar nova conta
+// Criar nova conta e adiciona a array
 function submitAcount(event) {
     event.preventDefault();
 
