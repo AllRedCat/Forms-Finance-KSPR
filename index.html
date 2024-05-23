@@ -21,14 +21,14 @@
         <nav class="navBar" id="navBar">
             <ul id="primary-navigation" data-visible="false" class="nav-links">
                 <li class="active"><button id="AcountBtn" onclick="showAcount()">Contas</button></li>
-                <li class="active"><button id="CategoriesBtn" onclick="showCategories()">Categorias</button></li>
+                <!-- <li class="active"><button id="CategoriesBtn" onclick="showCategories()">Categorias</button></li> -->
                 <li class="active"><button id="TransactionsBtn" onclick="showTransactions()">Transações</button></li>
                 <li class="active"><button id="TableBtn" onclick="showTable()">Tabela</button></li>
             </ul>
         </nav>
     </header>
     <main>
-        <div id="home" class="Home">
+        <div id="home" class="Home" style="display: none;">
             <div class="space-1" id="space_1">
                 <!-- visão geral -->
                 <canvas id="chart1" class="chart-1"></canvas>
@@ -53,21 +53,35 @@
                 </div>
             </div>
         </div>
-        <form action id="acount" class="acount" style="display: none;" onsubmit="submitAcount(event)">
-            <h2>Contas</h2>
-            <div class="AcountContainer">
-                <label for>Nome
-                    <input type="text" id="NameAcount" class="name">
-                </label>
-                <label for>Descrição
-                    <input type="text" id="descriptionAcount" class="description">
-                </label>
+        <section id="acount" class="acount" style="">
+            <form action onsubmit="submitAcount(event)">
+                <h2>Contas</h2>
+                <div class="AcountContainer">
+                    <label for>Nome
+                        <input type="text" id="NameAcount" class="name">
+                    </label>
+                    <label for>Descrição
+                        <input type="text" id="descriptionAcount" class="description">
+                    </label>
+                </div>
+                <div class="AcountBtns">
+                    <input type="reset" value="Limpar">
+                    <input type="submit" value="Adicionar">
+                </div>
+            </form>
+            <div>
+                <table id="accountTable">
+                   <thead>
+                        <tr>
+                            <td>Conta</td>
+                            <td>Descrição</td>
+                        </tr>
+                   </thead>
+                   <tbody>
+                   </tbody>
+                </table>
             </div>
-            <div class="AcountBtns">
-                <input type="reset" value="Cleam">
-                <input type="submit" value="Submit">
-            </div>
-        </form>
+        </section>
         <form action id="categories" class="categories" style="display: none;">
             <h2>Categorias</h2>
             <div class="CategoriesContainer">
@@ -134,7 +148,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        </tbody=>
+                    </tbody=>
                 </table>
                 <table id="outTable">
                     <thead>

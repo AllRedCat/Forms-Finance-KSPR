@@ -24,15 +24,15 @@ function showAcount() {
     navToggle.setAttribute("aria-expanded", false);
 }
 
-function showCategories() {
-    homePage.style.display = "none"
-    acountForm.style.display = "none";
-    categoriesForm.style.display = "flex";
-    transactionsForm.style.display = "none";
-    tablePage.style.display = "none";
-    primaryNav.setAttribute("data-visible", false);
-    navToggle.setAttribute("aria-expanded", false);
-}
+// function showCategories() {
+//     homePage.style.display = "none"
+//     acountForm.style.display = "none";
+//     categoriesForm.style.display = "flex";
+//     transactionsForm.style.display = "none";
+//     tablePage.style.display = "none";
+//     primaryNav.setAttribute("data-visible", false);
+//     navToggle.setAttribute("aria-expanded", false);
+// }
 
 function showTransactions() {
     homePage.style.display = "none"
@@ -278,6 +278,14 @@ function outTable() {
     });
 };
 
+//contas
+var name = accounts = [
+    { name: 'Caixa' },
+    { name: 'Nubank' },
+    { name: 'Nubank MEI' },
+    { name: 'Nubank Crédito' }
+]
+
 function acountSection() {
     var accountSelect = document.getElementById('AcountSelect');
 
@@ -289,20 +297,27 @@ function acountSection() {
     });
 }
 
+function accountTable() {
+    var tableAccount = document.getElementById('accountTable');
+    var accountBody = tableAccount.getElementsByTagName(`tbody`)[0];
+    
+    accounts.forEach(function (bank) {
+        var newRowAccount = accountBody.insertRow(accountBody.length);
+        
+        var accountCell1 = newRowAccount.insertCell(0);
+        var accountCell2 = newRowAccount.insertCell(1);
+        
+        accountCell1.innerHTML = bank.name;
+    });
+}
+
 // Chama a função para preencher a tabela quando a página carrega
 window.onload = function () {
     entryTable();
     outTable();
     acountSection();
+    accountTable();
 };
-
-//contas
-var accounts = [
-    { name: 'Caixa' },
-    { name: 'Nubank' },
-    { name: 'Nubank MEI' },
-    { name: 'Nubank Crédito' }
-]
 
 // Criar nova conta
 function submitAcount(event) {
