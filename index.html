@@ -28,7 +28,7 @@
         </nav>
     </header>
     <main>
-        <div id="home" class="Home" style="display: none;">
+        <div id="home" class="Home">
             <div class="space-1" id="space_1">
                 <!-- visão geral -->
                 <canvas id="chart1" class="chart-1"></canvas>
@@ -53,15 +53,15 @@
                 </div>
             </div>
         </div>
-        <section id="acount" class="acount" style="">
+        <section id="acount" class="acount" style="display: none;">
             <form action onsubmit="submitAcount(event)">
                 <h2>Contas</h2>
                 <div class="AcountContainer">
                     <label for>Nome
-                        <input type="text" id="NameAcount" class="name">
+                        <input type="text" id="NameAccount" class="name">
                     </label>
                     <label for>Descrição
-                        <input type="text" id="descriptionAcount" class="description">
+                        <input type="text" id="descriptionAccount" class="description">
                     </label>
                 </div>
                 <div class="AcountBtns">
@@ -73,8 +73,8 @@
                 <table id="accountTable">
                    <thead>
                         <tr>
-                            <td>Conta</td>
-                            <td>Descrição</td>
+                            <th>Conta</th>
+                            <th>Descrição</th>
                         </tr>
                    </thead>
                    <tbody>

@@ -234,6 +234,10 @@ var entryData = [
 function entryTable() {
     var table = document.getElementById("entryTable").getElementsByTagName('tbody')[0];
 
+    while (table.firstChild) {
+        table.removeChild(table.firstChild);
+    }
+
     entryData.forEach(function (dado) {
         var newRow = table.insertRow(table.length);
 
@@ -261,6 +265,10 @@ function outTable() {
     var table = document.getElementById("outTable");
     var tbody = table.getElementsByTagName('tbody')[0];
 
+    while (tbody.firstChild) {
+        tbody.removeChild(tbody.firstChild);
+    }
+
     outData.forEach(function (dado) {
         var newRowOut = tbody.insertRow(tbody.length);
 
@@ -278,14 +286,6 @@ function outTable() {
     });
 };
 
-//contas
-var name = accounts = [
-    { name: 'Caixa' },
-    { name: 'Nubank' },
-    { name: 'Nubank MEI' },
-    { name: 'Nubank Crédito' }
-]
-
 function acountSection() {
     var accountSelect = document.getElementById('AcountSelect');
 
@@ -301,6 +301,10 @@ function accountTable() {
     var tableAccount = document.getElementById('accountTable');
     var accountBody = tableAccount.getElementsByTagName(`tbody`)[0];
     
+    while (accountBody.firstChild) {
+        accountBody.removeChild(accountBody.firstChild);
+    }
+    
     accounts.forEach(function (bank) {
         var newRowAccount = accountBody.insertRow(accountBody.length);
         
@@ -308,6 +312,7 @@ function accountTable() {
         var accountCell2 = newRowAccount.insertCell(1);
         
         accountCell1.innerHTML = bank.name;
+        accountCell2.innerHTML = bank.description;
     });
 }
 
@@ -319,16 +324,32 @@ window.onload = function () {
     accountTable();
 };
 
+setInterval(entryTable, 100);
+setInterval(outTable, 100);
+setInterval(acountSection, 100);
+setInterval(accountTable, 100);
+
+//contas
+var name = accounts = [
+    { name: 'Caixa', description: 'Conta de recebimentos' },
+    { name: 'Nubank', description: 'Conta corrente' },
+    { name: 'Nubank MEI', description: 'Conta de recebimentos' },
+    { name: 'Nubank Crédito', description:`Conta de uso` }
+]
+
 // Criar nova conta
 function submitAcount(event) {
     event.preventDefault();
 
-    var newAcount = { name: document.getElementById('NameAcount').value }
+    var newAcount = {
+        name: document.getElementById('NameAccount').value,
+        description: document.getElementById('descriptionAccount').value
+    };
 
     accounts.push(newAcount);
 
-    document.getElementById('NameAcount').value = '';
-    document.getElementById('descriptionAcount').value = '';
+    document.getElementById('NameAccount').value = '';
+    document.getElementById('descriptionAccount').value = '';
 
     console.log(accounts);
 }
