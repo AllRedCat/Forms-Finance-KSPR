@@ -304,17 +304,17 @@ function acountSection() {
 function accountTable() {
     var tableAccount = document.getElementById('accountTable');
     var accountBody = tableAccount.getElementsByTagName(`tbody`)[0];
-    
+
     while (accountBody.firstChild) {
         accountBody.removeChild(accountBody.firstChild);
     }
-    
+
     accounts.forEach(function (bank) {
         var newRowAccount = accountBody.insertRow(accountBody.length);
-        
+
         var accountCell1 = newRowAccount.insertCell(0);
         var accountCell2 = newRowAccount.insertCell(1);
-        
+
         accountCell1.innerHTML = bank.name;
         accountCell2.innerHTML = bank.description;
     });
@@ -329,17 +329,17 @@ window.onload = function () {
 };
 
 // Atualiza as funções constantemente
-setInterval(entryTable, 100);
-setInterval(outTable, 100);
+// setInterval(entryTable, 100);
+// setInterval(outTable, 100);
 // setInterval(acountSection, 100);
-setInterval(accountTable, 100);
+// setInterval(accountTable, 100);
 
 // Array de contas
 var accounts = [
     { name: 'Caixa', description: 'Conta de recebimentos' },
     { name: 'Nubank', description: 'Conta corrente' },
     { name: 'Nubank MEI', description: 'Conta de recebimentos' },
-    { name: 'Nubank Crédito', description:`Conta de uso` }
+    { name: 'Nubank Crédito', description: `Conta de uso` }
 ]
 
 // Criar nova conta e adiciona a array
@@ -357,6 +357,7 @@ function submitAcount(event) {
     document.getElementById('descriptionAccount').value = '';
 
     console.log(accounts);
+    accountTable();
 }
 
 function reloadTalbe() {
@@ -390,4 +391,7 @@ function handleSubmit(event) {
     document.getElementById('value').value = '';
     document.getElementById('description').value = '';
     document.getElementById('hour').value = '';
+
+    entryTable();
+    outTable();
 };
