@@ -371,10 +371,13 @@ function submitTransaction(event) {
 
     event.preventDefault();
 
+    // Backend não diferenciou os tipos de transações, apenas leva em consideração o valor
+    transactionSignal = document.querySelector('.TransactionsType input:checked').value === 'Entrada' ? -1 : 1;
+
     var newTransaction = {
         date: document.getElementById('date').value,
         description: document.getElementById('description').value,
-        value: parseFloat(document.getElementById('value').value),
+        value: parseFloat(document.getElementById('value').value) * transactionSignal,
         type: document.querySelector('.TransactionsType input:checked').value,
         conta: document.getElementById('AcountSelect').value
     };
