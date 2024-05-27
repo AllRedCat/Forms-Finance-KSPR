@@ -225,9 +225,9 @@ function testIP() {
 // Tabela //
 // Dados fictícios para a tabela
 var entryData = [
-    { date: '03/05/2024', description: 'Salário', conta: 'Caixa', value: 2000.00, tipe: 'Receita' },
-    { date: '06/05/2024', description: 'Recebimento', conta: 'Nubank MEI', value: 450.00, tipe: 'Receita' },
-    { date: '06/05/2024', description: 'Recebimento', conta: 'Nubank MEI', value: 450.00, tipe: 'Receita' },
+    { date: '03/05/2024', description: 'Salário', conta: 'Caixa', value: 2000.00, type: 'Receita' },
+    { date: '06/05/2024', description: 'Recebimento', conta: 'Nubank MEI', value: 450.00, type: 'Receita' },
+    { date: '06/05/2024', description: 'Recebimento', conta: 'Nubank MEI', value: 450.00, type: 'Receita' },
 ];
 
 // Função para preencher a tabela com os dados
@@ -250,16 +250,16 @@ function entryTable() {
         cell1.innerHTML = dado.date;
         cell2.innerHTML = dado.description;
         cell3.innerHTML = 'R$ ' + dado.value.toFixed(2);
-        cell4.innerHTML = dado.tipe;
+        cell4.innerHTML = dado.type;
         cell5.innerHTML = dado.conta;
     });
 };
 
 // Array de transações de
 var outData = [
-    { date: '01/05/2024', description: 'Compra de alimentos', conta: 'Nubank Crédito', value: 50.00, tipe: 'Despesa' },
-    { date: '10/05/2024', description: 'Conta de luz', conta: 'Caixa', value: 120.00, tipe: 'Despesa' },
-    { date: '11/05/2024', description: 'Conta de internet', conta: 'Nubank MEI', value: 150.00, tipe: 'Despesa' },
+    { date: '01/05/2024', description: 'Compra de alimentos', conta: 'Nubank Crédito', value: 50.00, type: 'Despesa' },
+    { date: '10/05/2024', description: 'Conta de luz', conta: 'Caixa', value: 120.00, type: 'Despesa' },
+    { date: '11/05/2024', description: 'Conta de internet', conta: 'Nubank MEI', value: 150.00, type: 'Despesa' },
 ];
 
 // Adiciona as transações à tabela de saida
@@ -283,7 +283,7 @@ function outTable() {
         cellOut1.innerHTML = dado.date;
         cellOut2.innerHTML = dado.description;
         cellOut3.innerHTML = 'R$ ' + dado.value.toFixed(2);
-        cellOut4.innerHTML = dado.tipe;
+        cellOut4.innerHTML = dado.type;
         cellOut5.innerHTML = dado.conta;
     });
 };
@@ -367,7 +367,7 @@ function reloadTalbe() {
 
 // Adicionar objeto a array
 
-function handleSubmit(event) {
+function submitTransaction(event) {
 
     event.preventDefault();
 
@@ -375,13 +375,13 @@ function handleSubmit(event) {
         date: document.getElementById('date').value,
         description: document.getElementById('description').value,
         value: parseFloat(document.getElementById('value').value),
-        tipe: document.querySelector('.TransactionsType input:checked').value,
+        type: document.querySelector('.TransactionsType input:checked').value,
         conta: document.getElementById('AcountSelect').value
     };
 
-    if (newTransaction.tipe === 'Entrada') {
+    if (newTransaction.type === 'Entrada') {
         entryData.push(newTransaction);
-    } else if (newTransaction.tipe === 'Saida') {
+    } else if (newTransaction.type === 'Saida') {
         outData.push(newTransaction);
     }
 
