@@ -382,6 +382,10 @@ function submitTransaction(event) {
         conta: document.getElementById('AcountSelect').value
     };
 
+    // Envio de dados para o backend
+    // TODO
+
+    // Remover??
     if (newTransaction.type === 'Entrada') {
         entryData.push(newTransaction);
     } else if (newTransaction.type === 'Saida') {
@@ -391,10 +395,12 @@ function submitTransaction(event) {
     console.log(entryData);
     console.log(outData);
 
+    // Limpa os campos do formulário
     document.getElementById('value').value = '';
     document.getElementById('description').value = '';
     document.getElementById('hour').value = '';
 
+    // Chama a função para preencher a tabela
     entryTable();
     outTable();
 };
