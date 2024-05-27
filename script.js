@@ -4,6 +4,9 @@ const categoriesForm = document.getElementById('categories');
 const transactionsForm = document.getElementById('transactions');
 const tablePage = document.getElementById('table');
 
+// Configurações da API
+const API_baseUrl = 'http://127.0.0.1:3000';
+
 function showHome() {
     homePage.style.display = "grid"
     acountForm.style.display = "none";
@@ -366,13 +369,12 @@ function reloadTalbe() {
 }
 
 // Adicionar objeto a array
-
-function submitTransaction(event) {
+async function submitTransaction(event) {
 
     event.preventDefault();
 
     // Backend não diferenciou os tipos de transações, apenas leva em consideração o valor
-    transactionSignal = document.querySelector('.TransactionsType input:checked').value === 'Entrada' ? -1 : 1;
+    transactionSignal = document.querySelector('.TransactionsType input:checked').value === 'Entrada' ? 1 : -1;
 
     var newTransaction = {
         date: document.getElementById('date').value,
@@ -383,7 +385,16 @@ function submitTransaction(event) {
     };
 
     // Envio de dados para o backend
-    // TODO
+    const result = await fetch(`${API_baseUrl}/transactions`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newTransaction)
+    })
+
+    const data = await result.json();
+    console.log(data);
 
     // Remover??
     if (newTransaction.type === 'Entrada') {
