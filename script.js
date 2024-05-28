@@ -85,9 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Variáveis para test //
     // Visão geral         //
-    var bank = 800;
-    var entry = 1000;
-    // -- -- -- -- -- -- --//
+// -- -- -- -- -- -- --//
     // Receita             //
     var base = [1000, 1200, 800];
     // -- -- -- -- -- -- --//
@@ -211,19 +209,19 @@ document.addEventListener('DOMContentLoaded', function () {
 // Responsividade //
 // Largura da tela
 
-var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-var screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+//var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+//var screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
-function ScreenTest() {
-    alert("A resolução da tela é " + screenWidth + " x " + screenHeight);
-};
+//function ScreenTest() {
+//    alert("A resolução da tela é " + screenWidth + " x " + screenHeight);
+//};
 
 // Function to get Valid IP //
-function testIP() {
-    fetch('https://api.ipify.org?format=json')
-        .then(response => response.json())
-        .then(data => console.log(data.ip));
-}
+//function testIP() {
+//    fetch('https://api.ipify.org?format=json')
+//        .then(response => response.json())
+//        .then(data => console.log(data.ip));
+//}
 
 // Tabela //
 // Dados fictícios para a tabela
@@ -256,7 +254,7 @@ function entryTable() {
         cell4.innerHTML = dado.type;
         cell5.innerHTML = dado.conta;
     });
-};
+}
 
 // Array de transações de
 var outData = [
@@ -289,14 +287,14 @@ function outTable() {
         cellOut4.innerHTML = dado.type;
         cellOut5.innerHTML = dado.conta;
     });
-};
+}
 
 // Adiciona às contas à aba de seleção no formalário de transações
 function acountSection() {
-    var accountSelect = document.getElementById('AcountSelect');
+    const accountSelect = document.getElementById('AcountSelect');
 
     accounts.forEach(account => {
-        var accountOption = document.createElement('option');
+        const accountOption = document.createElement('option');
         accountOption.value = account.name;
         accountOption.textContent = account.name;
         accountSelect.appendChild(accountOption);
@@ -305,8 +303,8 @@ function acountSection() {
 
 // Adiciona objetos das contas à tabela
 function accountTable() {
-    var tableAccount = document.getElementById('accountTable');
-    var accountBody = tableAccount.getElementsByTagName(`tbody`)[0];
+    const tableAccount = document.getElementById('accountTable');
+    const accountBody = tableAccount.getElementsByTagName(`tbody`)[0];
 
     while (accountBody.firstChild) {
         accountBody.removeChild(accountBody.firstChild);
@@ -414,4 +412,4 @@ async function submitTransaction(event) {
     // Chama a função para preencher a tabela
     entryTable();
     outTable();
-};
+}
