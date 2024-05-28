@@ -125,7 +125,7 @@ main {
 .AcountContainer label input {
     width: 100%;
     height: 25px;
-    border-style: 50px;
+    border-radius: 50px;
 }
 
 .AcountBtns {
