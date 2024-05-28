@@ -30,3 +30,4 @@ Utiliza a biblioteca Chart.js para poder criar os gráficos da dashboard finance
 - [ ] Eliminar espaço vago na pagina home
 - [ ] Adicionar aba de categoria (Será um select)
 - [ ] Estilizar paginas (Ta feio o negócio)
+- [ ] Reorganizar scripts

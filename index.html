@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <!--Cabeçalho / NavBar-->
     <header>
         <div class="home-btn">
             <button onclick="showHome()">Home</button>
@@ -27,7 +28,9 @@
             </ul>
         </nav>
     </header>
+    <!--Corpo da página-->
     <main>
+        <!--Pagina inicial-->
         <div id="home" class="Home">
             <div class="space-1" id="space_1">
                 <!-- visão geral -->
@@ -53,6 +56,7 @@
                 </div>
             </div>
         </div>
+        <!--Seção de contas-->
         <section id="acount" class="acount" style="display: none;">
             <form action onsubmit="submitAcount(event)">
                 <h2>Contas</h2>
@@ -82,6 +86,7 @@
                 </table>
             </div>
         </section>
+        <!--Formulário para categorias-->
         <form action id="categories" class="categories" style="display: none;">
             <h2>Categorias</h2>
             <div class="CategoriesContainer">
@@ -97,6 +102,7 @@
                 <input type="submit" value="Submit">
             </div>
         </form>
+        <!--Formulário para transações-->
         <form action id="transactions" class="transactions" style="display: none;" onsubmit="submitTransaction(event)">
             <h2>Transações</h2>
             <div class="TransactionsContainer">
@@ -134,9 +140,11 @@
                 <input type="submit" value="Submit">
             </div>
         </form>
+        <!--Tabela de transações-->
         <div id="table" class="table" style="display: none;">
             <h1>Tabela</h1>
             <div class="containerTable">
+                <!--Tabela de entrada-->
                 <table id="entryTable">
                     <thead>
                         <tr>
@@ -150,6 +158,7 @@
                     <tbody>
                     </tbody>
                 </table>
+                <!--Tabela de saida-->
                 <table id="outTable">
                     <thead>
                         <tr>
@@ -164,9 +173,10 @@
                     </tbody>
                 </table>
             </div>
-            <button onclick="reloadTalbe()">Recarregar</button>
+            <!--<button onclick="reloadTalbe()">Recarregar</button>-->
         </div>
     </main>
+    <!--importação dos scripts-->
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
