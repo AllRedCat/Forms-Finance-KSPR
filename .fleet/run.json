@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "browser",
+            "browserExecutablePath": "/home/gabriel/Downloads/firefox/firefox",
+            "name": "Browser configuration",
+            "url": "index.html",
+        },
+        
+    ]
+}
