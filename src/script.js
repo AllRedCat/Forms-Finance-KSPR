@@ -1,5 +1,5 @@
 // Configurações da API
-const API_baseUrl = 'http://127.0.0.1:3000';
+const API_baseUrl = 'http://[2804:1e68:c219:4de2:6308:5244:fb2b:5bb]:3000';
 
 // Gráficos
 document.addEventListener('DOMContentLoaded', function () {
@@ -14,14 +14,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // Visão geral         //
 // -- -- -- -- -- -- --//
     // Receita             //
-    var base = [1000, 1200, 800];
+    const base = [1000, 1200, 800];
     // -- -- -- -- -- -- --//
     // Despesas
-    var out = [500, 800, 300, 600];
+    const out = [500, 800, 300, 600];
     // -- -- -- -- -- -- --//
     // Somas
-    var somIn = base.reduce((totalBase, base) => totalBase + base, 0);
-    var somOut = out.reduce((totalOut, out) => totalOut + out, 0);
+    const somIn = base.reduce((totalBase, base) => totalBase + base, 0);
+    const somOut = out.reduce((totalOut, out) => totalOut + out, 0);
     // -- -- -- -- -- -- --//
     //---------------------//
 
@@ -135,28 +135,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Tabela //
 // Dados fictícios para a tabela
-var entryData = [
-    { date: '03/05/2024', description: 'Salário', conta: 'Caixa', value: 2000.00, type: 'Receita' },
-    { date: '06/05/2024', description: 'Recebimento', conta: 'Nubank MEI', value: 450.00, type: 'Receita' },
-    { date: '06/05/2024', description: 'Recebimento', conta: 'Nubank MEI', value: 450.00, type: 'Receita' },
+const entryData = [
+    {date: '03/05/2024', description: 'Salário', conta: 'Caixa', value: 2000.00, type: 'Receita'},
+    {date: '06/05/2024', description: 'Recebimento', conta: 'Nubank MEI', value: 450.00, type: 'Receita'},
+    {date: '06/05/2024', description: 'Recebimento', conta: 'Nubank MEI', value: 450.00, type: 'Receita'},
 ];
+
+// Buscar do DataBase
+async function loadTransactions() {
+    const result = await fetch(`${API_baseUrl}/transactions`, {
+        method: 'GET'
+    })
+    const dados = await result.json();
+    console.log(dados);
+    
+}
 
 // Função para preencher a tabela com os dados
 function entryTable() {
-    var table = document.getElementById("entryTable").getElementsByTagName('tbody')[0];
+    const table = document.getElementById("entryTable").getElementsByTagName('tbody')[0];
 
     while (table.firstChild) {
         table.removeChild(table.firstChild);
     }
 
     entryData.forEach(function (dado) {
-        var newRow = table.insertRow(table.length);
+        const newRow = table.insertRow(table.length);
 
-        var cell1 = newRow.insertCell(0);
-        var cell2 = newRow.insertCell(1);
-        var cell3 = newRow.insertCell(2);
-        var cell4 = newRow.insertCell(3);
-        var cell5 = newRow.insertCell(4);
+        const cell1 = newRow.insertCell(0);
+        const cell2 = newRow.insertCell(1);
+        const cell3 = newRow.insertCell(2);
+        const cell4 = newRow.insertCell(3);
+        const cell5 = newRow.insertCell(4);
 
         cell1.innerHTML = dado.date;
         cell2.innerHTML = dado.description;
@@ -167,29 +177,29 @@ function entryTable() {
 }
 
 // Array de transações de
-var outData = [
-    { date: '01/05/2024', description: 'Compra de alimentos', conta: 'Nubank Crédito', value: 50.00, type: 'Despesa' },
-    { date: '10/05/2024', description: 'Conta de luz', conta: 'Caixa', value: 120.00, type: 'Despesa' },
-    { date: '11/05/2024', description: 'Conta de internet', conta: 'Nubank MEI', value: 150.00, type: 'Despesa' },
+const outData = [
+    {date: '01/05/2024', description: 'Compra de alimentos', conta: 'Nubank Crédito', value: 50.00, type: 'Despesa'},
+    {date: '10/05/2024', description: 'Conta de luz', conta: 'Caixa', value: 120.00, type: 'Despesa'},
+    {date: '11/05/2024', description: 'Conta de internet', conta: 'Nubank MEI', value: 150.00, type: 'Despesa'},
 ];
 
 // Adiciona as transações à tabela de saida
 function outTable() {
-    var table = document.getElementById("outTable");
-    var tbody = table.getElementsByTagName('tbody')[0];
+    const table = document.getElementById("outTable");
+    const tbody = table.getElementsByTagName('tbody')[0];
 
     while (tbody.firstChild) {
         tbody.removeChild(tbody.firstChild);
     }
 
     outData.forEach(function (dado) {
-        var newRowOut = tbody.insertRow(tbody.length);
+        const newRowOut = tbody.insertRow(tbody.length);
 
-        var cellOut1 = newRowOut.insertCell(0);
-        var cellOut2 = newRowOut.insertCell(1);
-        var cellOut3 = newRowOut.insertCell(2);
-        var cellOut4 = newRowOut.insertCell(3);
-        var cellOut5 = newRowOut.insertCell(4);
+        const cellOut1 = newRowOut.insertCell(0);
+        const cellOut2 = newRowOut.insertCell(1);
+        const cellOut3 = newRowOut.insertCell(2);
+        const cellOut4 = newRowOut.insertCell(3);
+        const cellOut5 = newRowOut.insertCell(4);
 
         cellOut1.innerHTML = dado.date;
         cellOut2.innerHTML = dado.description;
@@ -198,6 +208,15 @@ function outTable() {
         cellOut5.innerHTML = dado.conta;
     });
 }
+
+
+// Array de contas
+const accounts = [
+    { name: 'Caixa', description: 'Conta de recebimentos' },
+    { name: 'Nubank', description: 'Conta corrente' },
+    { name: 'Nubank MEI', description: 'Conta de recebimentos' },
+    { name: 'Nubank Crédito', description: `Conta de uso` }
+];
 
 // Adiciona às contas à aba de seleção no formalário de transações
 function acountSection() {
@@ -221,10 +240,10 @@ function accountTable() {
     }
 
     accounts.forEach(function (bank) {
-        var newRowAccount = accountBody.insertRow(accountBody.length);
+        const newRowAccount = accountBody.insertRow(accountBody.length);
 
-        var accountCell1 = newRowAccount.insertCell(0);
-        var accountCell2 = newRowAccount.insertCell(1);
+        const accountCell1 = newRowAccount.insertCell(0);
+        const accountCell2 = newRowAccount.insertCell(1);
 
         accountCell1.innerHTML = bank.name;
         accountCell2.innerHTML = bank.description;
@@ -237,27 +256,14 @@ window.onload = function () {
     outTable();
     acountSection();
     accountTable();
+    loadTransactions();
 };
-
-// Atualiza as funções constantemente
-// setInterval(entryTable, 100);
-// setInterval(outTable, 100);
-// setInterval(acountSection, 100);
-// setInterval(accountTable, 100);
-
-// Array de contas
-var accounts = [
-    { name: 'Caixa', description: 'Conta de recebimentos' },
-    { name: 'Nubank', description: 'Conta corrente' },
-    { name: 'Nubank MEI', description: 'Conta de recebimentos' },
-    { name: 'Nubank Crédito', description: `Conta de uso` }
-]
 
 // Criar nova conta e adiciona a array
 function submitAcount(event) {
     event.preventDefault();
 
-    var newAcount = {
+    const newAcount = {
         name: document.getElementById('NameAccount').value,
         description: document.getElementById('descriptionAccount').value
     };
@@ -271,20 +277,15 @@ function submitAcount(event) {
     accountTable();
 }
 
-function reloadTalbe() {
-    entryTable();
-    outTable();
-}
-
 // Adicionar objeto a array
 async function submitTransaction(event) {
 
     event.preventDefault();
 
     // Backend não diferenciou os tipos de transações, apenas leva em consideração o valor
-    transactionSignal = document.querySelector('.TransactionsType input:checked').value === 'Entrada' ? 1 : -1;
+    const transactionSignal = document.querySelector('.TransactionsType input:checked').value === 'Entrada' ? 1 : -1;
 
-    var newTransaction = {
+    const newTransaction = {
         date: document.getElementById('date').value,
         description: document.getElementById('description').value,
         value: parseFloat(document.getElementById('value').value) * transactionSignal,
