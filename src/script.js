@@ -1,12 +1,5 @@
 // Configurações da API
-const API_baseUrl = 'http://127.0.0.1:3000';
-
-class Chart {
-    constructor(chart_4, param2) {
-        
-    }
-
-}
+const API_baseUrl = 'http://[2804:1e68:c219:4de2:6308:5244:fb2b:5bb]:3000';
 
 // Gráficos
 document.addEventListener('DOMContentLoaded', function () {
@@ -148,6 +141,16 @@ const entryData = [
     {date: '06/05/2024', description: 'Recebimento', conta: 'Nubank MEI', value: 450.00, type: 'Receita'},
 ];
 
+// Buscar do DataBase
+async function loadTransactions() {
+    const result = await fetch(`${API_baseUrl}/transactions`, {
+        method: 'GET'
+    })
+    const dados = await result.json();
+    console.log(dados);
+    
+}
+
 // Função para preencher a tabela com os dados
 function entryTable() {
     const table = document.getElementById("entryTable").getElementsByTagName('tbody')[0];
@@ -253,6 +256,7 @@ window.onload = function () {
     outTable();
     acountSection();
     accountTable();
+    loadTransactions();
 };
 
 // Criar nova conta e adiciona a array
