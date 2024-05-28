@@ -24,10 +24,10 @@ Utiliza a biblioteca Chart.js para poder criar os gráficos da dashboard finance
 - [ ] Estilização da barra de navegação mobile
 - [ ] Ajustar botão da barra de navegação mobile
 - [ ] Criar área para gerenciar contas
+- [ ] Reorganizar scripts
 
 ## Pendências
 - [ ] Criação de pagina para importação de arquivos .csv
 - [ ] Eliminar espaço vago na pagina home
 - [ ] Adicionar aba de categoria (Será um select)
 - [ ] Estilizar paginas (Ta feio o negócio)
-- [ ] Reorganizar scripts
