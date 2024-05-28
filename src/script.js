@@ -239,12 +239,6 @@ window.onload = function () {
     accountTable();
 };
 
-// Atualiza as funções constantemente
-// setInterval(entryTable, 100);
-// setInterval(outTable, 100);
-// setInterval(acountSection, 100);
-// setInterval(accountTable, 100);
-
 // Array de contas
 var accounts = [
     { name: 'Caixa', description: 'Conta de recebimentos' },
