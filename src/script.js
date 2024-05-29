@@ -133,110 +133,6 @@ document.addEventListener('DOMContentLoaded', function () {
     //------------------------------------------//
 });
 
-// Buscar do DataBase
-//async function loadTransactions() {
-//    const result = await fetch(`${API_baseUrl}/transactions`, {
-//        method: 'GET'
-//    })
-//
-//    // "dados" é o objeto que vem da API
-//    const dados = await result.json(); // result.json() transforma em json
-//    const dadosSinal = Math.sign(dados.value); // Verifica o sinal do "value" dentro do objeto "dados"
-//
-//    // Se o sinal for positivo vai dar push dentro da const entryData
-//    try {
-//        const loadTables = () => {
-//        const tableEntrada = document.getElementById("entryTable").getElementsByTagName('tbody')[0];
-//        const tableSaida = document.getElementById("outTable");
-//        const tbody = tableSaida.getElementsByTagName('tbody')[0];
-//
-//            if (dadosSinal === 1) {
-//                //        entryData.push(dados);
-//
-//// Inserir a função de push no entryData com forEach
-//                function entryTable() {
-//
-//                    while (tableEntrada.firstChild) {
-//                        tableEntrada.removeChild(tableEntrada.firstChild);
-//                    }
-//
-//                    dados.forEach(function (dado) {
-//                        const newRow = tableEntrada.insertRow(tableEntrada.length);
-//
-//                        const cell1 = newRow.insertCell(0);
-//                        const cell2 = newRow.insertCell(1);
-//                        const cell3 = newRow.insertCell(2);
-//                        const cell4 = newRow.insertCell(3);
-//                        const cell5 = newRow.insertCell(4);
-//                        const {type, conta, value, description, date} = dado;
-//                        cell1.innerHTML = date;
-//                        cell2.innerHTML = description;
-//                        cell3.innerHTML = 'R$ ' + value.toFixed(2);
-//                        cell4.innerHTML = type;
-//                        cell5.innerHTML = conta;
-//                    });
-//                }
-//
-//            }
-//            // Se o sinal for negativo vai dar push dentro da const outData
-//            else {
-////                const dadosSaida = Math.abs(dados.value);
-//                //        outData.push(dadosSaida);
-//
-//// Inserir a função de push no outData com o forEach
-//                function outTable() {
-//
-//                    while (tbody.firstChild) {
-//                        tbody.removeChild(tbody.firstChild);
-//                    }
-//
-//                    dadosSaida.forEach(function (dado) {
-//                        const newRowOut = tbody.insertRow(tbody.length);
-//
-//                        const cellOut1 = newRowOut.insertCell(0);
-//                        const cellOut2 = newRowOut.insertCell(1);
-//                        const cellOut3 = newRowOut.insertCell(2);
-//                        const cellOut4 = newRowOut.insertCell(3);
-//                        const cellOut5 = newRowOut.insertCell(4);
-//
-//                        cellOut1.innerHTML = dado.date;
-//                        cellOut2.innerHTML = dado.description;
-//                        cellOut3.innerHTML = 'R$ ' + dado.value.toFixed(2);
-//                        cellOut4.innerHTML = dado.type;
-//                        cellOut5.innerHTML = dado.conta;
-//                    });
-//                }
-//
-//            }
-//        }
-//    } catch (erro) {
-//        console.error('Deu errado: ', erro);
-//    }
-//
-//    console.log(dados);
-////    return loadTables();
-//}
-
-// Tabela //
-// Dados fictícios para a tabela
-const entryData = [
-    {date: '03/05/2024', description: 'Salário', conta: 'Caixa', value: 2000.00, type: 'Receita'},
-    {date: '06/05/2024', description: 'Recebimento', conta: 'Nubank MEI', value: 450.00, type: 'Receita'},
-    {date: '06/05/2024', description: 'Recebimento', conta: 'Nubank MEI', value: 450.00, type: 'Receita'},
-];
-
-// Função para preencher a tabela com os dados
-
-
-// Array de transações de
-const outData = [
-    {date: '01/05/2024', description: 'Compra de alimentos', conta: 'Nubank Crédito', value: 50.00, type: 'Despesa'},
-    {date: '10/05/2024', description: 'Conta de luz', conta: 'Caixa', value: 120.00, type: 'Despesa'},
-    {date: '11/05/2024', description: 'Conta de internet', conta: 'Nubank MEI', value: 150.00, type: 'Despesa'},
-];
-
-// Adiciona as transações à tabela de saida
-
 // Array de contas
 const accounts = [
     {name: 'Caixa', description: 'Conta de recebimentos'},
@@ -332,22 +228,8 @@ async function submitTransaction(event) {
     const data = await result.json();
     console.log(data);
 
-    // Remover??
-    if (newTransaction.type === 'Entrada') {
-        entryData.push(newTransaction);
-    } else if (newTransaction.type === 'Saida') {
-        outData.push(newTransaction);
-    }
-
-    console.log(entryData);
-    console.log(outData);
-
     // Limpa os campos do formulário
     document.getElementById('value').value = '';
     document.getElementById('description').value = '';
     document.getElementById('hour').value = '';
-
-    // Chama a função para preencher a tabela
-    entryTable();
-    outTable();
 }
