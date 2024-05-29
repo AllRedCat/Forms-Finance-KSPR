@@ -139,15 +139,20 @@ async function loadTransactions() {
         method: 'GET'
     })
 
-    const dados = await result.json();
-    const dadosSinal = Math.sign(dados.value);
+    // "dados" é o objeto que vem da API
+    const dados = await result.json(); // result.json() transforma em json
+    const dadosSinal = Math.sign(dados.value); // Verifica o sinal do "value" dentro do objeto "dados"
 
+    // Se o sinal for positivo vai dar push dentro da const entryData
     if (dadosSinal === 1) {
         entryData.push(dados);
+        // Inserir a função de push no entryData com forEach
     }
+    // Se o sinal for negativo vai dar push dentro da const outData
     else {
-        const dadosSaida = Math.abs(dados);
-        outData.push(dados);
+        const dadosSaida = Math.abs(dados.value);
+        outData.push(dadosSaida);
+        // Inserir a função de push no outData com o forEach
     }
 
     console.log(dados);
