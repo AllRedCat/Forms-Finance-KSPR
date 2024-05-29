@@ -133,6 +133,26 @@ document.addEventListener('DOMContentLoaded', function () {
     //------------------------------------------//
 });
 
+// Buscar do DataBase
+async function loadTransactions() {
+    const result = await fetch(`${API_baseUrl}/transactions`, {
+        method: 'GET'
+    })
+
+    const dados = await result.json();
+    const dadosSinal = Math.sign(dados.value);
+
+    if (dadosSinal === 1) {
+        entryData.push(dados);
+    }
+    else {
+        const dadosSaida = Math.abs(dados);
+        outData.push(dados);
+    }
+
+    console.log(dados);
+}
+
 // Tabela //
 // Dados fictícios para a tabela
 const entryData = [
@@ -140,16 +160,6 @@ const entryData = [
     {date: '06/05/2024', description: 'Recebimento', conta: 'Nubank MEI', value: 450.00, type: 'Receita'},
     {date: '06/05/2024', description: 'Recebimento', conta: 'Nubank MEI', value: 450.00, type: 'Receita'},
 ];
-
-// Buscar do DataBase
-async function loadTransactions() {
-    const result = await fetch(`${API_baseUrl}/transactions`, {
-        method: 'GET'
-    })
-    const dados = await result.json();
-    console.log(dados);
-    
-}
 
 // Função para preencher a tabela com os dados
 function entryTable() {
