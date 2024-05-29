@@ -1,6 +1,41 @@
 // Configurações da API
 const API_baseUrl = 'http://[2804:1e68:c219:4de2:6308:5244:fb2b:5bb]:3000';
 
+// Import the functions you need from the SDKs you need
+//import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+//import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+//import { getFirestore } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js";
+
+//const firebaseConfig = {
+//    rules_version = '2';
+//
+//    service cloud.firestore {
+//        match /databases/{database}/documents {
+//        match /{document=**} {
+//            allow read, write: if
+//                request.time < timestamp.date(2024, 6, 27);
+//        }
+//    }
+//};
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+//const firebaseConfig = {
+//    apiKey: "AIzaSyAwWEKniarY4q3uUEM9E9uQFZFXQUU4INY",
+//    authDomain: "kspr-finance.firebaseapp.com",
+//    projectId: "kspr-finance",
+//    storageBucket: "kspr-finance.appspot.com",
+//    messagingSenderId: "342082748510",
+//    appId: "1:342082748510:web:4d0788f0bfdee31f1e34cf",
+//    measurementId: "G-E90F2GDTZ0"
+//};
+
+// Initialize Firebase
+//const app = initializeApp(firebaseConfig);
+//const analytics = getAnalytics(app);
+
 // Gráficos
 document.addEventListener('DOMContentLoaded', function () {
     //             Import dos 'canvas'               //
