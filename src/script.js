@@ -183,7 +183,7 @@ window.onload = function () {
 };
 
 // Criar nova conta e adiciona a array
-function submitAcount(event) {
+function submitAcount({event}) {
     event.preventDefault();
 
     const newAcount = {
