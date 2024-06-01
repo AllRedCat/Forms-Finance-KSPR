@@ -171,13 +171,15 @@ function accountTable() {
         accountCell1.innerHTML = bank.name;
         accountCell2.innerHTML = bank.description;
     });
+    console.log("accountTable() was called");
 }
 
 // Chama a função para preencher a tabela quando a página carrega
 window.onload = function () {
     acountSection();
     accountTable();
-};
+    console.log("Pagina carregou");
+}
 
 // Criar nova conta e adiciona a array
 function submitAcount({event}) {
