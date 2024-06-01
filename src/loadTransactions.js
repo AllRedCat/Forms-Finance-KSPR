@@ -44,11 +44,11 @@ async function loadTransactions() {
             const cell4 = newRow.insertCell(3);
             const cell5 = newRow.insertCell(4);
 
-            cell1.innerHTML = dado.date;
-            cell2.innerHTML = dado.description;
-            cell3.innerHTML = 'R$ ' + dado.value.toFixed(2);
-            cell4.innerHTML = dado.type;
-            cell5.innerHTML = dado.conta;
+            cell1.innerHTML = dado.account;
+            cell2.innerHTML = dado.category;
+            cell3.innerHTML = dado.date;
+            cell4.innerHTML = dado.description;
+            cell5.innerHTML = 'R$ ' + dado.value.toFixed(2);
         })
 
         // Insere dados na tabela de saida
@@ -61,11 +61,11 @@ async function loadTransactions() {
             const cell4 = newRow.insertCell(3);
             const cell5 = newRow.insertCell(4);
 
-            cell1.innerHTML = dadoSaida.date;
-            cell2.innerHTML = dadoSaida.description;
-            cell3.innerHTML = 'R$ ' + dadoSaida.value.toFixed(2);
-            cell4.innerHTML = dadoSaida.type;
-            cell5.innerHTML = dadoSaida.conta;
+            cell1.innerHTML = dadoSaida.account;
+            cell2.innerHTML = dadoSaida.category;
+            cell3.innerHTML = dadoSaida.date;
+            cell4.innerHTML = dadoSaida.description;
+            cell5.innerHTML = 'R$ ' + dadoSaida.value.toFixed(2);
         })
 
     } catch (erro) {
