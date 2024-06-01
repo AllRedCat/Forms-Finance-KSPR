@@ -1,6 +1,7 @@
-const API = 'http://[2804:1e68:c219:d093::1]:3000';
+const API = 'http://[2804:1e68:c219:1d1f:b8f9:458c:ebc9:9527]:3000';
 
-async function loadTransactions() {
+export default async function loadTransactions() {
+    console.log("Rodou a função");
     const result = await fetch(`${API}/transactions`, {
         method: 'GET'
     })
@@ -73,6 +74,6 @@ async function loadTransactions() {
     }
 }
 
-window.onload = function () {
-    loadTransactions();
-}
+// window.onload = function () {
+//     loadTransactions();
+// }

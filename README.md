@@ -33,3 +33,4 @@ Utiliza a biblioteca Chart.js para poder criar os gráficos da dashboard finance
 - [ ] Contas não estão funcionando
 
 Refatorar para evitar problemas, importar js atráves de modulos
+Refatorar o formulário de contas

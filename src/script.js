@@ -1,5 +1,8 @@
+// Importar outros arquivos js
+import loadTransactions from "./loadTransactions";
+
 // Configurações da API
-const API_baseUrl = 'http://[2804:1e68:c219:d093::1]:3000';
+const API = 'http://[2804:1e68:c219:1d1f:b8f9:458c:ebc9:9527]:3000';
 
 // Gráficos
 document.addEventListener('DOMContentLoaded', function () {
@@ -174,15 +177,8 @@ function accountTable() {
     console.log("accountTable() was called");
 }
 
-// Chama a função para preencher a tabela quando a página carrega
-window.onload = function () {
-    acountSection();
-    accountTable();
-    console.log("Pagina carregou");
-}
-
 // Criar nova conta e adiciona a array
-function submitAcount({event}) {
+function submitAccount(event) {
     event.preventDefault();
 
     const newAcount = {
@@ -231,4 +227,12 @@ async function submitTransaction(event) {
     document.getElementById('value').value = '';
     document.getElementById('description').value = '';
     document.getElementById('hour').value = '';
+}
+
+// Chama a função para preencher a tabela quando a página carrega
+window.onload = function () {
+    acountSection();
+    accountTable();
+    console.log("Pagina carregou");
+    loadTransactions();
 }
