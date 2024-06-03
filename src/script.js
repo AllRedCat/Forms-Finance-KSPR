@@ -6,6 +6,8 @@ const API = 'http://[2804:1e68:c219:1d1f:b8f9:458c:ebc9:9527]:3000';
 
 // Gráficos
 document.addEventListener('DOMContentLoaded', function () {
+    console.log("DOMContentLoaded");
+
     //             Import dos 'canvas'               //
     const chart_1 = document.getElementById('chart1');
     const chart_2 = document.getElementById('chart2');
@@ -15,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Variáveis para test //
     // Visão geral         //
-// -- -- -- -- -- -- --//
+    // -- -- -- -- -- -- --//
     // Receita             //
     const base = [1000, 1200, 800];
     // -- -- -- -- -- -- --//
@@ -212,7 +214,7 @@ async function submitTransaction(event) {
     };
 
     // Envio de dados para o backend
-    const result = await fetch(`${API_baseUrl}/transactions`, {
+    const result = await fetch(`${API}/transactions`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -231,8 +233,8 @@ async function submitTransaction(event) {
 
 // Chama a função para preencher a tabela quando a página carrega
 window.onload = function () {
-    acountSection();
-    accountTable();
-    console.log("Pagina carregou");
+//    acountSection();
+//    accountTable();
     loadTransactions();
+    console.log("Pagina carregou");
 }
