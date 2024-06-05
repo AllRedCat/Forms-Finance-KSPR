@@ -64,7 +64,7 @@ function submitAccount(event) {
     document.getElementById('descriptionAccount').value = '';
 
     console.log(accounts);
-    accountTable();
+    AccountTable(accountBody, accounts);
 }
 
 // Adicionar objeto a array
