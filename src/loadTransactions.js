@@ -3,19 +3,31 @@ export default async function loadTransactions(api) {
     // API to get transactions
     const API = api;
     
-    console.log("teste");
+    console.log("Iniciou o carregamento de transações");
     const result = await fetch(`${API}/transactions`, {
         method: 'GET'
     })
 
     try {
         const dados = await result.json();
+
+        // teste de ano
+        const dadosDate = dados.map(dados => {
+            const completeDate = new Date(dados.date);
+            const ano = completeDate.getFullYear();
+            const mes = completeDate.getMonth();
+            const dia = completeDate.getDate();
+            return `${ano}-${mes.toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}`;
+        });
+
+        // teste json
+        console.log(dados, dadosDate);
+
         /*
         "dados" retorna um json
         Cada objeto do json possui os seguites itens
         account:, category:, date:, description:, id:, value:
          */
-
         const dadosEntrada = dados.filter(objeto => objeto.value > 0);
         const dadosSaida = dados.filter(objeto => objeto.value < 0);
         /*
@@ -48,8 +60,8 @@ export default async function loadTransactions(api) {
             const cell4 = newRow.insertCell(3);
             const cell5 = newRow.insertCell(4);
 
-            cell1.innerHTML = dado.account;
-            cell2.innerHTML = dado.category;
+            cell1.innerHTML = dado.accountId;
+            cell2.innerHTML = dado.categoryId;
             cell3.innerHTML = dado.date;
             cell4.innerHTML = dado.description;
             cell5.innerHTML = 'R$ ' + dado.value.toFixed(2);
@@ -65,8 +77,8 @@ export default async function loadTransactions(api) {
             const cell4 = newRow.insertCell(3);
             const cell5 = newRow.insertCell(4);
 
-            cell1.innerHTML = dadoSaida.account;
-            cell2.innerHTML = dadoSaida.category;
+            cell1.innerHTML = dadoSaida.accountId;
+            cell2.innerHTML = dadoSaida.categoryId;
             cell3.innerHTML = dadoSaida.date;
             cell4.innerHTML = dadoSaida.description;
             cell5.innerHTML = 'R$ ' + dadoSaida.value.toFixed(2);
