@@ -1,5 +1,6 @@
 // Importar outros arquivos js
 import charts from "./charts.js";
+import { AccountTable, accountSection } from "./account.js";
 import loadTransactions from "./loadTransactions.js";
 
 // Configurações da API
@@ -13,53 +14,29 @@ document.addEventListener('DOMContentLoaded', function () {
     const chart2 = document.getElementById('chart2');
     const chart3 = document.getElementById('chart3');
     const chart4 = document.getElementById('chart4');
-
+    
     charts(chart1, chart2, chart3, chart4);
-    loadTransactions();
+    
+    // Array de teste de contas
+    const accounts = [
+        {name: 'Caixa', description: 'Conta de recebimentos'},
+        {name: 'Nubank', description: 'Conta corrente'},
+        {name: 'Nubank MEI', description: 'Conta de recebimentos'},
+        {name: 'Nubank Crédito', description: `Conta de uso`}
+    ];
+    
+    // Importar tabela de contas
+    const tableAccount = document.getElementById('accountTable');
+    const accountBody = tableAccount.getElementsByTagName(`tbody`)[0];
+    
+    AccountTable(accountBody, accounts);
+
+    accountSection(accounts);
+
+    loadTransactions(API);
 
     console.log("DOMContentLoaded");
 });
-
-// Array de contas
-const accounts = [
-    {name: 'Caixa', description: 'Conta de recebimentos'},
-    {name: 'Nubank', description: 'Conta corrente'},
-    {name: 'Nubank MEI', description: 'Conta de recebimentos'},
-    {name: 'Nubank Crédito', description: `Conta de uso`}
-];
-
-// Adiciona às contas à aba de seleção no formalário de transações
-function acountSection() {
-    const accountSelect = document.getElementById('AcountSelect');
-
-    accounts.forEach(account => {
-        const accountOption = document.createElement('option');
-        accountOption.value = account.name;
-        accountOption.textContent = account.name;
-        accountSelect.appendChild(accountOption);
-    });
-}
-
-// Adiciona objetos das contas à tabela
-function accountTable() {
-    const tableAccount = document.getElementById('accountTable');
-    const accountBody = tableAccount.getElementsByTagName(`tbody`)[0];
-
-    while (accountBody.firstChild) {
-        accountBody.removeChild(accountBody.firstChild);
-    }
-
-    accounts.forEach(function (bank) {
-        const newRowAccount = accountBody.insertRow(accountBody.length);
-
-        const accountCell1 = newRowAccount.insertCell(0);
-        const accountCell2 = newRowAccount.insertCell(1);
-
-        accountCell1.innerHTML = bank.name;
-        accountCell2.innerHTML = bank.description;
-    });
-    console.log("accountTable() was called");
-}
 
 // Criar nova conta e adiciona a array
 function submitAccount(event) {
@@ -76,7 +53,7 @@ function submitAccount(event) {
     document.getElementById('descriptionAccount').value = '';
 
     console.log(accounts);
-    accountTable();
+    AccountTable(accountBody, accounts);
 }
 
 // Adicionar objeto a array
@@ -114,8 +91,7 @@ async function submitTransaction(event) {
 }
 
 // Chama a função para preencher a tabela quando a página carrega
-window.onload = function () {
+// window.onload = function () {
 //    acountSection();
-//    accountTable();
-    console.log("Pagina carregou");
-}
+//     console.log("Pagina carregou");
+// }

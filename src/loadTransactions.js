@@ -1,7 +1,8 @@
-// API to get transactions
-const API = 'http://[2804:1e68:c219:1d1f:b8f9:458c:ebc9:9527]:3000';
 
-export default async function loadTransactions() {
+export default async function loadTransactions(api) {
+    // API to get transactions
+    const API = api;
+    
     console.log("Iniciou o carregamento de transações");
     const result = await fetch(`${API}/transactions`, {
         method: 'GET'

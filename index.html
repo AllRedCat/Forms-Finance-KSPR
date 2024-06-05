@@ -1,192 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/style.css">
-    <title>Forms - Finance | Red Cat</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./src/style.css">
+        <title>Forms - Finance | Red Cat</title>
+    </head>
 
-<body>
-    <!--Cabeçalho / NavBar-->
-    <header>
-        <div class="home-btn">
-            <button onclick="showHome()">Home</button>
-        </div>
-        <div>
-            <button id="navBtn" class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
-                <img src="img/cardapio.png" style="width: 40px" alt="Cardapio?">
-            </button>
-        </div>
-        <nav class="navBar" id="navBar">
-            <ul id="primary-navigation" data-visible="false" class="nav-links">
-                <li class="active"><button id="AcountBtn" onclick="showAcount()">Contas</button></li>
-                <li class="active"><button id="CategoriesBtn" onclick="showCategories()">Categorias</button></li>
-                <li class="active"><button id="TransactionsBtn" onclick="showTransactions()">Transações</button></li>
-                <li class="active"><button id="TableBtn" onclick="showTable()">Tabela</button></li>
-            </ul>
-        </nav>
-    </header>
-    <!--Corpo da página-->
-    <main>
-        <!--Pagina inicial-->
-        <div id="home" class="Home">
-            <div class="space-1" id="space_1">
-                <!-- visão geral -->
-                <canvas id="chart1" class="chart-1"></canvas>
+    <body>
+        <!--Cabeçalho / NavBar-->
+        <header>
+            <div class="home-btn">
+                <button onclick="showHome()">Home</button>
             </div>
-            <div class="space-2">
-                <!-- recietas -->
-                <canvas id="chart2" class="chart-2"></canvas>
+            <div>
+                <button id="navBtn" class="mobile-nav-toggle"
+                    aria-controls="primary-navigation" aria-expanded="false">
+                    <img src="img/cardapio.png" style="width: 40px"
+                        alt="Cardapio?">
+                </button>
             </div>
-            <div class="space-3">
-                <!-- despesas -->
-                <canvas id="chart3" class="chart-3"></canvas>
-            </div>
-            <div class="space-4">
-                <!-- investimentos -->
-                <canvas id="chart4" class="chart-4"></canvas>
-            </div>
-            <div class="space-5">
-                <div class="item">
-                    <h3>Espaço vago (disponivel)</h3>
-                    <button onclick="ScreenTest()">teste tela</button>
-                    <button onclick="testIP()">Testar IP</button>
+            <nav class="navBar" id="navBar">
+                <ul id="primary-navigation" data-visible="false"
+                    class="nav-links">
+                    <li class="active"><button id="AcountBtn"
+                            onclick="showAcount()">Contas</button></li>
+                    <li class="active"><button id="CategoriesBtn"
+                            onclick="showCategories()">Categorias</button></li>
+                    <li class="active"><button id="TransactionsBtn"
+                            onclick="showTransactions()">Transações</button></li>
+                    <li class="active"><button id="TableBtn"
+                            onclick="showTable()">Tabela</button></li>
+                </ul>
+            </nav>
+        </header>
+        <!--Corpo da página-->
+        <main>
+            <!--Pagina inicial-->
+            <div id="home" class="Home">
+                <div class="space-1" id="space_1">
+                    <!-- visão geral -->
+                    <canvas id="chart1" class="chart-1"></canvas>
+                </div>
+                <div class="space-2">
+                    <!-- recietas -->
+                    <canvas id="chart2" class="chart-2"></canvas>
+                </div>
+                <div class="space-3">
+                    <!-- despesas -->
+                    <canvas id="chart3" class="chart-3"></canvas>
+                </div>
+                <div class="space-4">
+                    <!-- investimentos -->
+                    <canvas id="chart4" class="chart-4"></canvas>
+                </div>
+                <div class="space-5">
+                    <div class="item">
+                        <h3>Espaço vago (disponivel)</h3>
+                        <button onclick="ScreenTest()">teste tela</button>
+                        <button onclick="testIP()">Testar IP</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!--Seção de contas-->
-        <section id="acount" class="acount" style="display: none;">
-            <form action class="FormAccount" onsubmit="submitAccount(event)">
-                <h2>Contas</h2>
-                <div class="AcountContainer">
+            <!--Seção de contas-->
+            <section id="acount" class="acount" style="display: none;">
+                <form class="FormAccount" onsubmit="submitAccount(event)">
+                    <h2>Contas</h2>
+                    <div class="AcountContainer">
+                        <label for>Nome
+                            <input type="text" id="NameAccount" class="name">
+                        </label>
+                        <label for>Descrição
+                            <input type="text" id="descriptionAccount"
+                                class="description">
+                        </label>
+                    </div>
+                    <div class="AcountBtns">
+                        <input type="reset" value="Limpar">
+                        <input type="submit" value="Adicionar">
+                    </div>
+                </form>
+                <div>
+                    <table id="accountTable">
+                        <thead>
+                            <tr>
+                                <th>Conta</th>
+                                <th style="width: 250px">Descrição</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <!--Formulário para categorias-->
+            <form action id="categories" class="categories"
+                style="display: none;">
+                <h2>Categorias</h2>
+                <div class="CategoriesContainer">
                     <label for>Nome
-                        <input type="text" id="NameAccount" class="name">
+                        <input type="text" id="NameCategories" class="name">
                     </label>
                     <label for>Descrição
-                        <input type="text" id="descriptionAccount" class="description">
+                        <input type="text" id="DescriptionCategories"
+                            class="description">
                     </label>
                 </div>
-                <div class="AcountBtns">
-                    <input type="reset" value="Limpar">
-                    <input type="submit" value="Adicionar">
+                <div class="CategoriesBtns">
+                    <input type="reset" value="Cleam">
+                    <input type="submit" value="Submit">
                 </div>
             </form>
-            <div>
-                <table id="accountTable">
-                   <thead>
-                        <tr>
-                            <th>Conta</th>
-                            <th style="width: 250px">Descrição</th>
-                        </tr>
-                   </thead>
-                   <tbody>
-                   </tbody>
-                </table>
-            </div>
-        </section>
-        <!--Formulário para categorias-->
-        <form action id="categories" class="categories" style="display: none;">
-            <h2>Categorias</h2>
-            <div class="CategoriesContainer">
-                <label for>Nome
-                    <input type="text" id="NameCategories" class="name">
-                </label>
-                <label for>Descrição
-                    <input type="text" id="DescriptionCategories" class="description">
-                </label>
-            </div>
-            <div class="CategoriesBtns">
-                <input type="reset" value="Cleam">
-                <input type="submit" value="Submit">
-            </div>
-        </form>
-        <!--Formulário para transações-->
-        <form action id="transactions" class="transactions" style="display: none;" onsubmit="submitTransaction(event)">
-            <h2>Transações</h2>
-            <div class="TransactionsContainer">
-                <label for="value" class="value" id="valueSpace">Valor
-                    <input type="number" min="0.00" step="0.01" class="inputSpace" id="value">
-                </label>
-                <div class="TransactionsType">
-                    <label class="LabelType">Tipo
-                        <div class="in">
-                            <input type="radio" name="tipo" value="Entrada">
-                            <label for>Entrada</label>
-                        </div>
-                        <div class="out">
-                            <input type="radio" name="tipo" value="Saida">
-                            <label for>Saida</label>
-                        </div>
+            <!--Formulário para transações-->
+            <form action id="transactions" class="transactions"
+                style="display: none;" onsubmit="submitTransaction(event)">
+                <h2>Transações</h2>
+                <div class="TransactionsContainer">
+                    <label for="value" class="value" id="valueSpace">Valor
+                        <input type="number" min="0.00" step="0.01"
+                            class="inputSpace" id="value">
+                    </label>
+                    <div class="TransactionsType">
+                        <label class="LabelType">Tipo
+                            <div class="in">
+                                <input type="radio" name="tipo" value="Entrada">
+                                <label for>Entrada</label>
+                            </div>
+                            <div class="out">
+                                <input type="radio" name="tipo" value="Saida">
+                                <label for>Saida</label>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="dateTime">
+                        <label for class="dateItem">Data
+                            <input type="date" class="inputSpace" id="date">
+                        </label>
+                    </div>
+                    <!-- Inserir barra para selecionar conta -->
+                    <label>Conta
+                        <select name="AcountSelect" id="AcountSelect">
+                        </select>
+                    </label>
+                    <label>
+                        <select name="CategorySelect" id="CategorySelect">
+                        </select>
+                    </label>
+                    <label for>Descrição
+                        <input type="text" class="inputSpace" id="description">
                     </label>
                 </div>
-                <div class="dateTime">
-                    <label for class="dateItem">Data
-                        <input type="date" class="inputSpace" id="date">
-                    </label>
+                <div class="TransactionsBtn">
+                    <input type="reset" value="Cleam" class="resetBtn">
+                    <input type="submit" value="Submit">
                 </div>
-                <!-- Inserir barra para selecionar conta -->
-                <label>Conta
-                    <select name="AcountSelect" id="AcountSelect">
-                    </select>
-                </label>
-                <label>
-                    <select name="CategorySelect" id="CategorySelect">
-                    </select>
-                </label>
-                <label for>Descrição
-                    <input type="text" class="inputSpace" id="description">
-                </label>
+            </form>
+            <!--Tabela de transações-->
+            <div id="table" class="table" style="display: none;">
+                <h1>Tabela</h1>
+                <div class="containerTable">
+                    <!--Tabela de entrada-->
+                    <table id="entryTable">
+                        <thead>
+                            <tr>
+                                <th>Conta</th> <!--account-->
+                                <th>Categoria</th> <!--category-->
+                                <th>Data</th> <!--date-->
+                                <th>Descrição</th> <!--description-->
+                                <th>Valor</th> <!--value-->
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <!--Tabela de saida-->
+                    <table id="outTable">
+                        <thead>
+                            <tr>
+                                <th>Conta</th> <!--account-->
+                                <th>Categoria</th> <!--category-->
+                                <th>Data</th> <!--date-->
+                                <th>Descrição</th> <!--description-->
+                                <th>Valor</th> <!--value-->
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <!--<button onclick="reloadTalbe()">Recarregar</button>-->
             </div>
-            <div class="TransactionsBtn">
-                <input type="reset" value="Cleam" class="resetBtn">
-                <input type="submit" value="Submit">
-            </div>
-        </form>
-        <!--Tabela de transações-->
-        <div id="table" class="table" style="display: none;">
-            <h1>Tabela</h1>
-            <div class="containerTable">
-                <!--Tabela de entrada-->
-                <table id="entryTable">
-                    <thead>
-                        <tr>
-                            <th>Conta</th> <!--account-->
-                            <th>Categoria</th> <!--category-->
-                            <th>Data</th> <!--date-->
-                            <th>Descrição</th> <!--description-->
-                            <th>Valor</th> <!--value-->
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-                <!--Tabela de saida-->
-                <table id="outTable">
-                    <thead>
-                        <tr>
-                            <th>Conta</th> <!--account-->
-                            <th>Categoria</th> <!--category-->
-                            <th>Data</th> <!--date-->
-                            <th>Descrição</th> <!--description-->
-                            <th>Valor</th> <!--value-->
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-            <!--<button onclick="reloadTalbe()">Recarregar</button>-->
-        </div>
-    </main>
-    <!--importação dos scripts-->
-    <script src="./src/testeBtns.js"></script>
-    <script src="./src/navbar.js"></script>
-    <!-- <script src="./src/loadTransactions.js"></script> -->
-    <!-- <script src="./src/account.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script type="module" src="./src/script.js" defer></script>
-</body>
+        </main>
+        <!--importação dos scripts-->
+        <script src="./src/testeBtns.js"></script>
+        <script src="./src/navbar.js"></script>
+        <!-- <script src="./src/loadTransactions.js"></script> -->
+        <!-- <script src="./src/account.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script type="module" src="./src/script.js" defer></script>
+    </body>
 
 </html>
