@@ -35,7 +35,8 @@ Utiliza a biblioteca Chart.js para poder criar os gráficos da dashboard finance
 - [ ] Refatorar o formulário de contas
 - [ ] Concertar os scripts não funcionantes mais
 
-- Formulário de adicionar conta e a tabela de contas não está funcionando
+- Formulário de adicionar conta à tabela de contas não está funcionando
 
 ### Atualizações para a branch
 - Refatorei o script de carregamento dos gráficos
+- Refatorei o script de carregamento da tabela de contas
