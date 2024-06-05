@@ -1,4 +1,4 @@
-export default function AccountTable(tbody, accounts) {
+export function AccountTable(tbody, accounts) {
 
     const accountBody = tbody;
 
@@ -16,5 +16,17 @@ export default function AccountTable(tbody, accounts) {
 
         accountCell1.innerHTML = bank.name;
         accountCell2.innerHTML = bank.description;
+    });
+}
+
+// Adiciona às contas à aba de seleção no formalário de transações
+export function accountSection(accounts) {
+    const accountSelect = document.getElementById('AcountSelect');
+
+    accounts.forEach(account => {
+        const accountOption = document.createElement('option');
+        accountOption.value = account.name;
+        accountOption.textContent = account.name;
+        accountSelect.appendChild(accountOption);
     });
 }

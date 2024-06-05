@@ -1,6 +1,6 @@
 // Importar outros arquivos js
 import charts from "./charts.js";
-import AccountTable from "./account.js";
+import { AccountTable, accountSection } from "./account.js";
 import loadTransactions from "./loadTransactions.js";
 
 // Configurações da API
@@ -31,23 +31,12 @@ document.addEventListener('DOMContentLoaded', function () {
     
     AccountTable(accountBody, accounts);
 
-    loadTransactions();
+    accountSection(accounts);
+
+    loadTransactions(API);
 
     console.log("DOMContentLoaded");
 });
-
-
-// Adiciona às contas à aba de seleção no formalário de transações
-function acountSection() {
-    const accountSelect = document.getElementById('AcountSelect');
-
-    accounts.forEach(account => {
-        const accountOption = document.createElement('option');
-        accountOption.value = account.name;
-        accountOption.textContent = account.name;
-        accountSelect.appendChild(accountOption);
-    });
-}
 
 // Criar nova conta e adiciona a array
 function submitAccount(event) {
@@ -102,7 +91,7 @@ async function submitTransaction(event) {
 }
 
 // Chama a função para preencher a tabela quando a página carrega
-window.onload = function () {
+// window.onload = function () {
 //    acountSection();
-    console.log("Pagina carregou");
-}
+//     console.log("Pagina carregou");
+// }
