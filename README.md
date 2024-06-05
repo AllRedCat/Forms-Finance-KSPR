@@ -32,9 +32,10 @@ Utiliza a biblioteca Chart.js para poder criar os gráficos da dashboard finance
 - [ ] Estilizar paginas (Ta feio o negócio)
 - [ ] Contas não estão funcionando
 
-- [ ] Refatorar para evitar problemas, importar js atráves de modulos
 - [ ] Refatorar o formulário de contas
 - [ ] Concertar os scripts não funcionantes mais
 
-- loadTransactions.js aparenta estar funcionando
 - Formulário de adicionar conta e a tabela de contas não está funcionando
+
+### Atualizações para a branch
+- Refatorei o script de carregamento dos gráficos
