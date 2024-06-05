@@ -8,27 +8,28 @@ const API = 'http://[2804:1e68:c219:1d1f:b8f9:458c:ebc9:9527]:3000';
 
 // Função para carregar os itens quando a página carrega
 document.addEventListener('DOMContentLoaded', function () {
-    
+
     // Teste de importação de gráficos
     const chart1 = document.getElementById('chart1');
     const chart2 = document.getElementById('chart2');
     const chart3 = document.getElementById('chart3');
     const chart4 = document.getElementById('chart4');
-    
+
     charts(chart1, chart2, chart3, chart4);
-    
+
     // Array de teste de contas
     const accounts = [
-        {name: 'Caixa', description: 'Conta de recebimentos'},
-        {name: 'Nubank', description: 'Conta corrente'},
-        {name: 'Nubank MEI', description: 'Conta de recebimentos'},
-        {name: 'Nubank Crédito', description: `Conta de uso`}
+        { name: 'Caixa', description: 'Conta de recebimentos' },
+        { name: 'Nubank', description: 'Conta corrente' },
+        { name: 'Nubank MEI', description: 'Conta de recebimentos' },
+        { name: 'Nubank Crédito', description: `Conta de uso` }
     ];
-    
+
     // Importar tabela de contas
     const tableAccount = document.getElementById('accountTable');
     const accountBody = tableAccount.getElementsByTagName(`tbody`)[0];
-    
+
+    // Chama a função para adicionar itens às tabela de contas
     AccountTable(accountBody, accounts);
 
     accountSection(accounts);

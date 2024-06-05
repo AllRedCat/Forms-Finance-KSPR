@@ -1,8 +1,6 @@
 export function AccountTable(tbody, accounts) {
 
     const accountBody = tbody;
-
-    var accounts = accounts;
     
     while (accountBody.firstChild) {
         accountBody.removeChild(accountBody.firstChild);
