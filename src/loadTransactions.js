@@ -3,7 +3,7 @@ export default async function loadTransactions(api) {
     // API to get transactions
     const API = api;
     
-    console.log("Iniciou o carregamento de transações");
+    console.log("teste");
     const result = await fetch(`${API}/transactions`, {
         method: 'GET'
     })
@@ -15,6 +15,7 @@ export default async function loadTransactions(api) {
         Cada objeto do json possui os seguites itens
         account:, category:, date:, description:, id:, value:
          */
+
         const dadosEntrada = dados.filter(objeto => objeto.value > 0);
         const dadosSaida = dados.filter(objeto => objeto.value < 0);
         /*

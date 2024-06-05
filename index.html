@@ -6,6 +6,63 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./src/style.css">
         <title>Forms - Finance | Red Cat</title>
+
+        <script>
+            const accounts = [
+            {name: 'Caixa', description: 'Conta de recebimentos'},
+            {name: 'Nubank', description: 'Conta corrente'},
+            {name: 'Nubank MEI', description: 'Conta de recebimentos'},
+            {name: 'Nubank Crédito', description: `Conta de uso`}
+            ];
+            // Criar nova conta e adiciona a array
+            function submitAccount(event) {
+            event.preventDefault();
+
+            const newAcount = {
+            name: document.getElementById('NameAccount').value,
+            description: document.getElementById('descriptionAccount').value
+            };
+
+            accounts.push(newAcount);
+
+            document.getElementById('NameAccount').value = '';
+            document.getElementById('descriptionAccount').value = '';
+
+            console.log(accounts);
+            }
+            async function submitTransaction(event) {
+
+            event.preventDefault();
+
+            // Backend não diferenciou os tipos de transações, apenas leva em consideração o valor
+            const transactionSignal = document.querySelector('.TransactionsType input:checked').value === 'Entrada' ? 1 : -1;
+
+            const newTransaction = {
+            date: document.getElementById('date').value,
+            description: document.getElementById('description').value,
+            value: parseFloat(document.getElementById('value').value) * transactionSignal,
+            type: document.querySelector('.TransactionsType input:checked').value,
+            conta: document.getElementById('AcountSelect').value
+            };
+
+            // Envio de dados para o backend
+            const result = await fetch(`${API}/transactions`, {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newTransaction)
+            })
+
+            const data = await result.json();
+            console.log(data);
+
+            // Limpa os campos do formulário
+            document.getElementById('value').value = '';
+            document.getElementById('description').value = '';
+            document.getElementById('hour').value = '';
+            }
+        </script>
     </head>
 
     <body>
@@ -16,22 +73,22 @@
             </div>
             <div>
                 <button id="navBtn" class="mobile-nav-toggle"
-                    aria-controls="primary-navigation" aria-expanded="false">
+                        aria-controls="primary-navigation" aria-expanded="false">
                     <img src="img/cardapio.png" style="width: 40px"
-                        alt="Cardapio?">
+                         alt="Cardapio?">
                 </button>
             </div>
             <nav class="navBar" id="navBar">
                 <ul id="primary-navigation" data-visible="false"
                     class="nav-links">
                     <li class="active"><button id="AcountBtn"
-                            onclick="showAcount()">Contas</button></li>
+                                               onclick="showAcount()">Contas</button></li>
                     <li class="active"><button id="CategoriesBtn"
-                            onclick="showCategories()">Categorias</button></li>
+                                               onclick="showCategories()">Categorias</button></li>
                     <li class="active"><button id="TransactionsBtn"
-                            onclick="showTransactions()">Transações</button></li>
+                                               onclick="showTransactions()">Transações</button></li>
                     <li class="active"><button id="TableBtn"
-                            onclick="showTable()">Tabela</button></li>
+                                               onclick="showTable()">Tabela</button></li>
                 </ul>
             </nav>
         </header>
@@ -73,7 +130,7 @@
                         </label>
                         <label for>Descrição
                             <input type="text" id="descriptionAccount"
-                                class="description">
+                                   class="description">
                         </label>
                     </div>
                     <div class="AcountBtns">
@@ -96,7 +153,7 @@
             </section>
             <!--Formulário para categorias-->
             <form action id="categories" class="categories"
-                style="display: none;">
+                  style="display: none;">
                 <h2>Categorias</h2>
                 <div class="CategoriesContainer">
                     <label for>Nome
@@ -104,7 +161,7 @@
                     </label>
                     <label for>Descrição
                         <input type="text" id="DescriptionCategories"
-                            class="description">
+                               class="description">
                     </label>
                 </div>
                 <div class="CategoriesBtns">
@@ -114,12 +171,12 @@
             </form>
             <!--Formulário para transações-->
             <form action id="transactions" class="transactions"
-                style="display: none;" onsubmit="submitTransaction(event)">
+                  style="display: none;" onsubmit="submitTransaction(event)">
                 <h2>Transações</h2>
                 <div class="TransactionsContainer">
                     <label for="value" class="value" id="valueSpace">Valor
                         <input type="number" min="0.00" step="0.01"
-                            class="inputSpace" id="value">
+                               class="inputSpace" id="value">
                     </label>
                     <div class="TransactionsType">
                         <label class="LabelType">Tipo
@@ -195,8 +252,6 @@
         <!--importação dos scripts-->
         <script src="./src/testeBtns.js"></script>
         <script src="./src/navbar.js"></script>
-        <!-- <script src="./src/loadTransactions.js"></script> -->
-        <!-- <script src="./src/account.js"></script> -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script type="module" src="./src/script.js" defer></script>
     </body>

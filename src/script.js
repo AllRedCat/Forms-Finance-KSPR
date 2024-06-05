@@ -4,7 +4,7 @@ import { AccountTable, accountSection } from "./account.js";
 import loadTransactions from "./loadTransactions.js";
 
 // Configurações da API
-const API = 'http://[2804:1e68:c219:1d1f:b8f9:458c:ebc9:9527]:3000';
+const API = 'http://[2804:1e68:c219:fe0e:f378:b57c:1f7f:45f1]:3000';
 
 // Função para carregar os itens quando a página carrega
 document.addEventListener('DOMContentLoaded', function () {
@@ -39,56 +39,56 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Criar nova conta e adiciona a array
-function submitAccount(event) {
-    event.preventDefault();
-
-    const newAcount = {
-        name: document.getElementById('NameAccount').value,
-        description: document.getElementById('descriptionAccount').value
-    };
-
-    accounts.push(newAcount);
-
-    document.getElementById('NameAccount').value = '';
-    document.getElementById('descriptionAccount').value = '';
-
-    console.log(accounts);
-    AccountTable(accountBody, accounts);
-}
-
-// Adicionar objeto a array
-async function submitTransaction(event) {
-
-    event.preventDefault();
-
-    // Backend não diferenciou os tipos de transações, apenas leva em consideração o valor
-    const transactionSignal = document.querySelector('.TransactionsType input:checked').value === 'Entrada' ? 1 : -1;
-
-    const newTransaction = {
-        date: document.getElementById('date').value,
-        description: document.getElementById('description').value,
-        value: parseFloat(document.getElementById('value').value) * transactionSignal,
-        type: document.querySelector('.TransactionsType input:checked').value,
-        conta: document.getElementById('AcountSelect').value
-    };
-
-    // Envio de dados para o backend
-    const result = await fetch(`${API}/transactions`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newTransaction)
-    })
-
-    const data = await result.json();
-    console.log(data);
-
-    // Limpa os campos do formulário
-    document.getElementById('value').value = '';
-    document.getElementById('description').value = '';
-    document.getElementById('hour').value = '';
-}
+//function submitAccount(event) {
+//    event.preventDefault();
+//
+//    const newAcount = {
+//        name: document.getElementById('NameAccount').value,
+//        description: document.getElementById('descriptionAccount').value
+//    };
+//
+//    accounts.push(newAcount);
+//
+//    document.getElementById('NameAccount').value = '';
+//    document.getElementById('descriptionAccount').value = '';
+//
+//    console.log(accounts);
+//    AccountTable(accountBody, accounts);
+//}
+//
+//// Adicionar objeto a array
+//async function submitTransaction(event) {
+//
+//    event.preventDefault();
+//
+//    // Backend não diferenciou os tipos de transações, apenas leva em consideração o valor
+//    const transactionSignal = document.querySelector('.TransactionsType input:checked').value === 'Entrada' ? 1 : -1;
+//
+//    const newTransaction = {
+//        date: document.getElementById('date').value,
+//        description: document.getElementById('description').value,
+//        value: parseFloat(document.getElementById('value').value) * transactionSignal,
+//        type: document.querySelector('.TransactionsType input:checked').value,
+//        conta: document.getElementById('AcountSelect').value
+//    };
+//
+//    // Envio de dados para o backend
+//    const result = await fetch(`${API}/transactions`, {
+//        method: 'POST',
+//        headers: {
+//            'Content-Type': 'application/json'
+//        },
+//        body: JSON.stringify(newTransaction)
+//    })
+//
+//    const data = await result.json();
+//    console.log(data);
+//
+//    // Limpa os campos do formulário
+//    document.getElementById('value').value = '';
+//    document.getElementById('description').value = '';
+//    document.getElementById('hour').value = '';
+//}
 
 // Chama a função para preencher a tabela quando a página carrega
 // window.onload = function () {
