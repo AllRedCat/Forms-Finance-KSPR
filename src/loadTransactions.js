@@ -69,9 +69,7 @@ export default async function loadTransactions() {
             cell4.innerHTML = dadoSaida.description;
             cell5.innerHTML = 'R$ ' + dadoSaida.value.toFixed(2);
         })
-        console.log("Transações carregadas");
     } catch (erro) {
         console.error('Deu erro: ', erro);
-        console.log("Erro ao carregar transações");
     }
 }
