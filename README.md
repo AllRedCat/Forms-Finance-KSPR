@@ -37,9 +37,8 @@ Utiliza a biblioteca Chart.js para poder criar os gráficos da dashboard finance
 
 - Formulário de adicionar conta à tabela de contas não está funcionando
 
-- fazer uma parte sómente para puxar a API
-
 ## Atualizações para a branch
 - Refatorei o script de carregamento dos gráficos
 - Refatorei o script de carregamento da tabela de contas
 - submitAccoutn() não está funcionando (não está carregando antes do DOM, o que não permite que o formulário seja enviado)
+- O mesmo está acontecendo ao submitTransaction(event)
