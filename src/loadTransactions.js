@@ -1,8 +1,7 @@
-
 export default async function loadTransactions(api) {
     // API to get transactions
     const API = api;
-    
+
     console.log("Iniciou o carregamento de transações");
     const result = await fetch(`${API}/transactions`, {
         method: 'GET'
@@ -54,6 +53,12 @@ export default async function loadTransactions(api) {
         dadosEntrada.forEach(function (dado) {
             const newRow = tabelaEntrada.insertRow(tabelaEntrada.length);
 
+            const completeDate = new Date(dado.date);
+            const ano = completeDate.getFullYear();
+            const mes = completeDate.getMonth();
+            const dia = completeDate.getDate();
+            const dateFomat = `${ano}-${mes.toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}`;
+
             const cell1 = newRow.insertCell(0);
             const cell2 = newRow.insertCell(1);
             const cell3 = newRow.insertCell(2);
@@ -62,7 +67,8 @@ export default async function loadTransactions(api) {
 
             cell1.innerHTML = dado.accountId;
             cell2.innerHTML = dado.categoryId;
-            cell3.innerHTML = dado.date;
+//            cell3.innerHTML = dado.date;
+            cell3.innerHTML = dateFomat;
             cell4.innerHTML = dado.description;
             cell5.innerHTML = 'R$ ' + dado.value.toFixed(2);
         })
@@ -70,6 +76,12 @@ export default async function loadTransactions(api) {
         // Insere dados na tabela de saida
         dadosSaida.forEach(function (dadoSaida) {
             const newRow = tabelaSaida.insertRow(tabelaEntrada.length);
+
+            const completeDateSaida = new Date(dadoSaida.date);
+            const ano = completeDateSaida.getFullYear();
+            const mes = completeDateSaida.getMonth();
+            const dia = completeDateSaida.getDate();
+            const dateFomat = `${ano}-${mes.toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}`;
 
             const cell1 = newRow.insertCell(0);
             const cell2 = newRow.insertCell(1);
@@ -79,7 +91,7 @@ export default async function loadTransactions(api) {
 
             cell1.innerHTML = dadoSaida.accountId;
             cell2.innerHTML = dadoSaida.categoryId;
-            cell3.innerHTML = dadoSaida.date;
+            cell3.innerHTML = dateFomat;
             cell4.innerHTML = dadoSaida.description;
             cell5.innerHTML = 'R$ ' + dadoSaida.value.toFixed(2);
         })
