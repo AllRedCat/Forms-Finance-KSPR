@@ -17,16 +17,25 @@ Utiliza a biblioteca Chart.js para poder criar os gráficos da dashboard finance
 - [x] Criar coluna de 'conta' nas tabelas
 - [x] Adicionar campo de descriação no formalário de transações
 - [x] Funcionalidade da aba de adicionar contas
+- [x] Criar área para gerenciar contas
 
 ## Em Progresso
 - [ ] Responsividade para dispositivos moveis
-- [ ] Remover abas inuteis
 - [ ] Estilização da barra de navegação mobile
 - [ ] Ajustar botão da barra de navegação mobile
-- [ ] Criar área para gerenciar contas
+- [ ] Reorganizar scripts
 
 ## Pendências
 - [ ] Criação de pagina para importação de arquivos .csv
 - [ ] Eliminar espaço vago na pagina home
 - [ ] Adicionar aba de categoria (Será um select)
 - [ ] Estilizar paginas (Ta feio o negócio)
+- [ ] Contas não estão funcionando
+
+- [ ] Refatorar o formulário de contas
+- [ ] Concertar os scripts não funcionantes mais
+
+- Formulário de adicionar conta e a tabela de contas não está funcionando
+
+### Atualizações para a branch
+- Refatorei o script de carregamento dos gráficos

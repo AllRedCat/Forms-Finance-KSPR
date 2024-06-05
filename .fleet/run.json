@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "type": "browser",
+            "browserExecutablePath": "/home/gabriel/Downloads/firefox/firefox",
+            "name": "Browser configuration",
+            "url": "index.html",
+        },
+        {
+            "type": "browser",
+            "browserExecutablePath": "C:/Program Files/Firefox Developer Edition/firefox.exe",
+            "name": "Desktop run config",
+            "url": "index.html",
+        }
+        
+    ]
+}
