@@ -1,7 +1,8 @@
+// API to get transactions
 const API = 'http://[2804:1e68:c219:1d1f:b8f9:458c:ebc9:9527]:3000';
 
 export default async function loadTransactions() {
-    console.log("Rodou a função");
+    console.log("Iniciou o carregamento de transações");
     const result = await fetch(`${API}/transactions`, {
         method: 'GET'
     })
@@ -68,12 +69,9 @@ export default async function loadTransactions() {
             cell4.innerHTML = dadoSaida.description;
             cell5.innerHTML = 'R$ ' + dadoSaida.value.toFixed(2);
         })
-
+        console.log("Transações carregadas");
     } catch (erro) {
         console.error('Deu erro: ', erro);
+        console.log("Erro ao carregar transações");
     }
 }
-
-// window.onload = function () {
-//     loadTransactions();
-// }
