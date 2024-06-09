@@ -29,4 +29,5 @@ export function accountSection(accounts) {
         accountOption.textContent = account.name;
         accountSelect.appendChild(accountOption);
     });
+    console.log("Contas adicionadas");
 }

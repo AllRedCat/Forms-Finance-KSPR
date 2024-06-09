@@ -6,7 +6,16 @@ import loadTransactions from "./loadTransactions.js";
 // Configurações da API
 const API = 'http://[2804:1e68:c219:fe0e:f378:b57c:1f7f:45f1]:3000';
 
+// Array de teste de contas
+export const accounts = [
+    {name: 'Caixa', description: 'Conta de recebimentos'},
+    {name: 'Nubank', description: 'Conta corrente'},
+    {name: 'Nubank MEI', description: 'Conta de recebimentos'},
+    {name: 'Nubank Crédito', description: `Conta de uso`}
+];
+
 // Função para carregar os itens quando a página carrega
+
 document.addEventListener('DOMContentLoaded', function () {
     
     // Teste de importação de gráficos
@@ -17,14 +26,6 @@ document.addEventListener('DOMContentLoaded', function () {
     
     charts(chart1, chart2, chart3, chart4);
     
-    // Array de teste de contas
-    const accounts = [
-        {name: 'Caixa', description: 'Conta de recebimentos'},
-        {name: 'Nubank', description: 'Conta corrente'},
-        {name: 'Nubank MEI', description: 'Conta de recebimentos'},
-        {name: 'Nubank Crédito', description: `Conta de uso`}
-    ];
-    
     // Importar tabela de contas
     const tableAccount = document.getElementById('accountTable');
     const accountBody = tableAccount.getElementsByTagName(`tbody`)[0];
@@ -33,28 +34,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
     accountSection(accounts);
 
-    loadTransactions(API);
-
     console.log("DOMContentLoaded");
 });
 
 // Criar nova conta e adiciona a array
-//function submitAccount(event) {
-//    event.preventDefault();
-//
-//    const newAcount = {
-//        name: document.getElementById('NameAccount').value,
-//        description: document.getElementById('descriptionAccount').value
-//    };
-//
-//    accounts.push(newAcount);
-//
-//    document.getElementById('NameAccount').value = '';
-//    document.getElementById('descriptionAccount').value = '';
-//
-//    console.log(accounts);
-//    AccountTable(accountBody, accounts);
-//}
+function submitAccount(event) {
+   event.preventDefault();
+
+   const newAcount = {
+       name: document.getElementById('NameAccount').value,
+       description: document.getElementById('descriptionAccount').value
+   };
+
+   accounts.push(newAcount);
+
+   document.getElementById('NameAccount').value = '';
+   document.getElementById('descriptionAccount').value = '';
+
+   console.log(accounts);
+   AccountTable(accountBody, accounts);
+}
 //
 //// Adicionar objeto a array
 //async function submitTransaction(event) {
@@ -89,9 +88,3 @@ document.addEventListener('DOMContentLoaded', function () {
 //    document.getElementById('description').value = '';
 //    document.getElementById('hour').value = '';
 //}
-
-// Chama a função para preencher a tabela quando a página carrega
-// window.onload = function () {
-//    acountSection();
-//     console.log("Pagina carregou");
-// }
